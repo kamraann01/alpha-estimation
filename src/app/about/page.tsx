@@ -5,6 +5,8 @@ import { Users, Award, Target, Globe } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Us",
   description: "Learn about Alpha Estimation — your trusted construction estimating partner with 15+ years of experience.",
+  alternates: { canonical: "/about" },
+  openGraph: { title: "About Us | Alpha Estimation", description: "Learn about Alpha Estimation — your trusted construction estimating partner with 15+ years of experience.", url: "/about" },
 };
 
 const values = [

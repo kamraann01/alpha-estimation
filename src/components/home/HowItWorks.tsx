@@ -47,7 +47,7 @@ export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolea
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connector line */}
-          <div className="hidden md:block absolute top-12 left-1/3 right-1/3 h-px bg-gradient-to-r from-orange-500/50 via-orange-500 to-orange-500/50" />
+          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-orange-500/50 via-orange-500 to-orange-500/50" />
 
           {steps.map((step, i) => (
             <motion.div

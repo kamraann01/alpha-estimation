@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How It Works",
   description: "Learn how our 3-step construction estimating process works. Upload plans, get a quote, receive your estimate.",
+  alternates: { canonical: "/how-it-works" },
+  openGraph: { title: "How It Works | Alpha Estimation", description: "Simple 3-step process: upload plans, get a quote, receive your estimate in 24–48 hours.", url: "/how-it-works" },
 };
 
 export default function HowItWorksPage() {

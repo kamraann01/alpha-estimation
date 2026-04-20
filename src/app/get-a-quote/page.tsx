@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Link from "next/link";
 import { Upload, CheckCircle, Phone, Mail } from "lucide-react";
 
 const schema = z.object({
@@ -43,9 +44,9 @@ export default function GetAQuotePage() {
           </div>
           <h2 className="text-3xl font-bold text-white mb-3">Quote Request Sent!</h2>
           <p className="text-gray-400 mb-8">We&apos;ll review your project details and get back to you within 2–4 business hours.</p>
-          <a href="/" className="inline-block px-6 py-3 gradient-bg rounded-xl text-white font-semibold hover:opacity-90 transition-opacity">
+          <Link href="/" className="inline-block px-6 py-3 gradient-bg rounded-xl text-white font-semibold hover:opacity-90 transition-opacity">
             Back to Home
-          </a>
+          </Link>
         </motion.div>
       </div>
     );
@@ -71,22 +72,22 @@ export default function GetAQuotePage() {
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="q-name" className="block text-sm text-gray-300 mb-2">Full Name *</label>
-                  <input id="q-name" {...register("name")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
+                  <input id="q-name" {...register("name")} autoComplete="name" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
                   {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="q-email" className="block text-sm text-gray-300 mb-2">Email *</label>
-                  <input id="q-email" {...register("email")} type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
+                  <input id="q-email" {...register("email")} type="email" autoComplete="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
                   {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="q-phone" className="block text-sm text-gray-300 mb-2">Phone *</label>
-                  <input id="q-phone" {...register("phone")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="+1 (555) 000-0000" />
+                  <input id="q-phone" {...register("phone")} autoComplete="tel" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="+1 (555) 000-0000" />
                   {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="q-company" className="block text-sm text-gray-300 mb-2">Company Name</label>
-                  <input id="q-company" {...register("company")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="Your Company LLC" />
+                  <input id="q-company" {...register("company")} autoComplete="organization" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="Your Company LLC" />
                 </div>
               </div>
 

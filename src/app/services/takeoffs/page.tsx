@@ -6,6 +6,8 @@ import CTA from "@/components/home/CTA";
 export const metadata: Metadata = {
   title: "Material Takeoff Services",
   description: "Precise quantity takeoffs for all construction trades. Fast digital takeoffs from your plans.",
+  alternates: { canonical: "/services/takeoffs" },
+  openGraph: { title: "Material Takeoff Services | Alpha Estimation", description: "Precise quantity takeoffs for all construction trades. Fast digital takeoffs delivered in 24–48 hours.", url: "/services/takeoffs" },
 };
 
 const deliverables = [

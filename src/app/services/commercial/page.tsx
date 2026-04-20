@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Building2, Home, FileSpreadsheet, HardHat, Factory, Lightbulb, ArrowRight } from "lucide-react";
+import { Building2, ArrowRight } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
   title: "Commercial Estimating Services",
   description: "Professional commercial construction estimating. Offices, retail, multi-family, and large-scale commercial projects.",
+  alternates: { canonical: "/services/commercial" },
+  openGraph: { title: "Commercial Estimating Services | Alpha Estimation", description: "Professional commercial construction estimating. Offices, retail, multi-family, and large-scale commercial projects.", url: "/services/commercial" },
 };
 
 const scope = [

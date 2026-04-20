@@ -6,6 +6,8 @@ import CTA from "@/components/home/CTA";
 export const metadata: Metadata = {
   title: "Industrial Estimating Services",
   description: "Specialized estimating for industrial construction — warehouses, manufacturing, plants and more.",
+  alternates: { canonical: "/services/industrial" },
+  openGraph: { title: "Industrial Estimating Services | Alpha Estimation", description: "Specialized industrial construction estimating for warehouses, manufacturing facilities, plants and more.", url: "/services/industrial" },
 };
 
 const scope = [

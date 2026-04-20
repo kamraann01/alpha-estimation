@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Frequently asked questions about our construction estimating services.",
+  alternates: { canonical: "/faq" },
+  openGraph: { title: "FAQ | Alpha Estimation", description: "Frequently asked questions about our construction estimating services.", url: "/faq" },
 };
 
 export default function FAQPage() {

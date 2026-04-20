@@ -6,6 +6,8 @@ import CTA from "@/components/home/CTA";
 export const metadata: Metadata = {
   title: "Subcontractor Estimating Services",
   description: "Trade-specific estimating for subcontractors. Electrical, plumbing, HVAC, concrete, framing and more.",
+  alternates: { canonical: "/services/subcontractor" },
+  openGraph: { title: "Subcontractor Estimating Services | Alpha Estimation", description: "Trade-specific estimates for electrical, plumbing, HVAC, concrete, framing and more subcontractors.", url: "/services/subcontractor" },
 };
 
 const trades = ["Electrical", "Plumbing", "HVAC / Mechanical", "Concrete & Foundations", "Framing & Carpentry", "Drywall & Finishes", "Painting", "Roofing", "Flooring", "Tile & Stone", "Landscaping & Sitework", "Fire Protection"];

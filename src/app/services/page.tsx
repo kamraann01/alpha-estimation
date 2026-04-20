@@ -6,6 +6,8 @@ import CTA from "@/components/home/CTA";
 export const metadata: Metadata = {
   title: "Services",
   description: "Full-service construction estimating — commercial, residential, industrial, takeoffs, and subcontractor estimates.",
+  alternates: { canonical: "/services" },
+  openGraph: { title: "Services | Alpha Estimation", description: "Full-service construction estimating — commercial, residential, industrial, takeoffs, and subcontractor estimates.", url: "/services" },
 };
 
 const services = [

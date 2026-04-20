@@ -39,7 +39,7 @@ const services = [
     icon: Zap,
     title: "Conceptual Estimating",
     desc: "Early-stage budget estimates from schematic designs or project descriptions — before full plans.",
-    href: "/services/commercial",
+    href: "/get-a-quote",
   },
 ];
 

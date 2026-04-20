@@ -6,6 +6,8 @@ import CTA from "@/components/home/CTA";
 export const metadata: Metadata = {
   title: "Residential Estimating Services",
   description: "Accurate residential construction estimating for new homes, additions, and remodels.",
+  alternates: { canonical: "/services/residential" },
+  openGraph: { title: "Residential Estimating Services | Alpha Estimation", description: "Accurate residential construction estimating for new homes, additions, and remodels. Starting at $349.", url: "/services/residential" },
 };
 
 const scope = [

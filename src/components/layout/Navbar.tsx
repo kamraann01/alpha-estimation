@@ -54,22 +54,22 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</Link>
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">
+            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/" ? "text-white" : "text-gray-300 hover:text-white")}>Home</Link>
 
             {/* Services Dropdown */}
             <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <button className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              <button className={cn("flex items-center gap-1 transition-colors text-sm font-medium", pathname.startsWith("/services") ? "text-white" : "text-gray-300 hover:text-white")} aria-expanded={servicesOpen} aria-haspopup="menu">
                 Services <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicesOpen && "rotate-180")} />
               </button>
               {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-60 bg-[#0d1427] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50">
-                  <Link href="/services" className="block px-4 py-2.5 text-xs text-orange-500 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors">
+                <div className="absolute top-full left-0 mt-2 w-60 bg-[#0d1427] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50" role="menu">
+                  <Link href="/services" className="block px-4 py-2.5 text-xs text-orange-500 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors" role="menuitem">
                     All Services →
                   </Link>
                   <div className="border-t border-white/5 mt-1 pt-1">
                     {services.map((s) => (
-                      <Link key={s.href} href={s.href} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">
+                      <Link key={s.href} href={s.href} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors" role="menuitem">
                         {s.label}
                       </Link>
                     ))}
@@ -78,10 +78,10 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">How It Works</Link>
-            <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Pricing</Link>
-            <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</Link>
+            <Link href="/how-it-works" aria-current={pathname === "/how-it-works" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/how-it-works" ? "text-white" : "text-gray-300 hover:text-white")}>How It Works</Link>
+            <Link href="/pricing" aria-current={pathname === "/pricing" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/pricing" ? "text-white" : "text-gray-300 hover:text-white")}>Pricing</Link>
+            <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/about" ? "text-white" : "text-gray-300 hover:text-white")}>About</Link>
+            <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/contact" ? "text-white" : "text-gray-300 hover:text-white")}>Contact</Link>
           </nav>
 
           {/* CTA */}
@@ -99,7 +99,9 @@ export default function Navbar() {
           <button
             className="lg:hidden text-white p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -108,7 +110,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#0d1427] border-t border-white/10 px-4 py-6 space-y-1">
+        <nav id="mobile-nav" className="lg:hidden bg-[#0d1427] border-t border-white/10 px-4 py-6 space-y-1" aria-label="Mobile navigation">
           <Link href="/" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Home</Link>
           <div className="py-2 px-3">
             <p className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-semibold">Services</p>
@@ -130,7 +132,7 @@ export default function Navbar() {
               Get a Free Quote
             </Link>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     title: "Alpha Estimation | Professional Construction Estimating",
     description: "Fast, accurate construction estimates starting at $349. 48hr turnaround.",
   },
+  alternates: { canonical: "/" },
   robots: {
     index: true,
     follow: true,
@@ -74,8 +75,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
       </head>
       <body className="antialiased bg-[#0a0f1e] text-white">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg focus:font-semibold">
+          Skip to content
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

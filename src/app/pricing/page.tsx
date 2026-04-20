@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pricing",
   description: "Transparent construction estimating pricing. Starting at $349 per project. No hidden fees.",
+  alternates: { canonical: "/pricing" },
+  openGraph: { title: "Pricing | Alpha Estimation", description: "Transparent construction estimating pricing. Starting at $349 per project. No hidden fees.", url: "/pricing" },
 };
 
 export default function PricingPage() {
@@ -17,6 +19,10 @@ export default function PricingPage() {
         <p className="text-gray-400 text-xl">No surprises. No hourly confusion. Just clear pricing for professional estimates.</p>
       </div>
       <Pricing hideHeader />
+      <div className="max-w-3xl mx-auto px-4 pt-14 pb-0 text-center">
+        <h2 className="text-3xl font-bold text-white mb-2">Frequently Asked <span className="gradient-text">Questions</span></h2>
+        <p className="text-gray-400">Answers to common questions about our pricing and process.</p>
+      </div>
       <FAQ hideHeader />
       <CTA />
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, CheckCircle } from "lucide-react";
 
@@ -25,9 +26,9 @@ export default function ContactPage() {
           </div>
           <h2 className="text-3xl font-bold text-white mb-3">Message Sent!</h2>
           <p className="text-gray-400 mb-8">We&apos;ll get back to you within 1–2 business hours.</p>
-          <a href="/" className="inline-block px-6 py-3 gradient-bg rounded-xl text-white font-semibold hover:opacity-90 transition-opacity">
+          <Link href="/" className="inline-block px-6 py-3 gradient-bg rounded-xl text-white font-semibold hover:opacity-90 transition-opacity">
             Back to Home
-          </a>
+          </Link>
         </motion.div>
       </div>
     );
@@ -50,7 +51,7 @@ export default function ContactPage() {
               { icon: Mail, title: "Email", value: "contact@alphaestimation.com", href: "mailto:contact@alphaestimation.com", external: false },
               { icon: MapPin, title: "Office", value: "117 S Lexington Street STE 100, Harrisonville, MO 64701", href: "https://maps.google.com/?q=117+S+Lexington+Street+STE+100+Harrisonville+MO+64701", external: true },
             ].map((item, i) => (
-              <a key={i} href={item.href} {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-orange-500/30 transition-all block">
+              <a key={i} href={item.href} {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-orange-500/30 transition-all">
                 <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center shrink-0">
                   <item.icon className="w-5 h-5 text-white" />
                 </div>
@@ -72,11 +73,11 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-5">
               <div>
                 <label htmlFor="contact-name" className="block text-sm text-gray-300 mb-2">Your Name</label>
-                <input id="contact-name" name="name" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
+                <input id="contact-name" name="name" required autoComplete="name" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
               </div>
               <div>
                 <label htmlFor="contact-email" className="block text-sm text-gray-300 mb-2">Email Address</label>
-                <input id="contact-email" name="email" required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
+                <input id="contact-email" name="email" required type="email" autoComplete="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
               </div>
               <div>
                 <label htmlFor="contact-subject" className="block text-sm text-gray-300 mb-2">Subject</label>

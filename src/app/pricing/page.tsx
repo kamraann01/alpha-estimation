@@ -16,8 +16,8 @@ export default function PricingPage() {
         <h1 className="text-5xl font-bold text-white mb-4">Simple, <span className="gradient-text">Honest Pricing</span></h1>
         <p className="text-gray-400 text-xl">No surprises. No hourly confusion. Just clear pricing for professional estimates.</p>
       </div>
-      <Pricing />
-      <FAQ />
+      <Pricing hideHeader />
+      <FAQ hideHeader />
       <CTA />
     </div>
   );

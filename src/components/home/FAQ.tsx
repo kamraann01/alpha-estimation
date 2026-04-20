@@ -31,12 +31,13 @@ const faqs = [
   },
 ];
 
-export default function FAQ() {
+export default function FAQ({ hideHeader = false }: { hideHeader?: boolean }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="section-padding bg-[#0d1225]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        {!hideHeader && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,6 +50,7 @@ export default function FAQ() {
           </h2>
           <p className="text-gray-400 text-lg">Everything you need to know before getting started.</p>
         </motion.div>
+        )}
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (

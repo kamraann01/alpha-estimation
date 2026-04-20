@@ -30,7 +30,6 @@ export default function GetAQuotePage() {
 
   const onSubmit = async (data: FormData) => {
     // In production: send to API route or email service
-    console.log(data);
     await new Promise(r => setTimeout(r, 1000));
     setSubmitted(true);
   };

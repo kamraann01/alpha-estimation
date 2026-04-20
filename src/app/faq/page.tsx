@@ -15,7 +15,7 @@ export default function FAQPage() {
         <h1 className="text-5xl font-bold text-white mb-4">Frequently Asked <span className="gradient-text">Questions</span></h1>
         <p className="text-gray-400 text-xl">Everything you need to know about our services.</p>
       </div>
-      <FAQ />
+      <FAQ hideHeader />
       <CTA />
     </div>
   );

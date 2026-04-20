@@ -48,7 +48,7 @@ export default function ContactPage() {
             {[
               { icon: Phone, title: "Phone", value: "+1 (928) 381-7910", href: "tel:+19283817910" },
               { icon: Mail, title: "Email", value: "contact@alphaestimation.com", href: "mailto:contact@alphaestimation.com" },
-              { icon: MapPin, title: "Office", value: "117 S Lexington Street STE 100, Harrisonville, MO 64701", href: "#" },
+              { icon: MapPin, title: "Office", value: "117 S Lexington Street STE 100, Harrisonville, MO 64701", href: "https://maps.google.com/?q=117+S+Lexington+Street+STE+100+Harrisonville+MO+64701" },
             ].map((item, i) => (
               <a key={i} href={item.href} className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-orange-500/30 transition-all block">
                 <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center shrink-0">

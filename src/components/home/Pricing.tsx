@@ -57,10 +57,11 @@ const plans = [
   },
 ];
 
-export default function Pricing() {
+export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
     <section className="section-padding bg-[#0a0f1e]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {!hideHeader && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,6 +76,7 @@ export default function Pricing() {
             No hidden fees, no surprises. Choose a plan or request a custom quote for your project.
           </p>
         </motion.div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
           {plans.map((plan, i) => (

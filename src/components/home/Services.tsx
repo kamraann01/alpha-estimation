@@ -72,12 +72,15 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Link href={service.href} className="group block glass rounded-2xl p-8 hover:border-orange-500/30 hover:bg-white/5 transition-all duration-300 h-full">
-                <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Link href={service.href} className="group block glass-hover rounded-2xl p-8 transition-all duration-300 h-full">
+                <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">{service.desc}</p>
+                <span className="inline-flex items-center gap-1.5 text-orange-500 text-sm font-medium group-hover:gap-2.5 transition-all duration-200">
+                  Learn more <span className="text-base">→</span>
+                </span>
               </Link>
             </motion.div>
           ))}

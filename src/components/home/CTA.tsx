@@ -2,44 +2,53 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone, Clock } from "lucide-react";
 
 export default function CTA() {
   return (
     <section className="section-padding bg-[#0a0f1e]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative gradient-bg rounded-3xl p-12 md:p-16 text-center overflow-hidden"
+          className="relative gradient-bg rounded-3xl p-12 md:p-16 overflow-hidden"
         >
           {/* Background decoration */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute -top-12 -right-12 w-64 h-64 bg-white rounded-full" />
-            <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-white rounded-full" />
-          </div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2" />
 
-          <div className="relative">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Ready to Win More Bids?
-            </h2>
-            <p className="text-orange-100 text-xl mb-10 max-w-2xl mx-auto">
-              Send us your plans today and get a professional estimate delivered within 24–48 hours. Stop leaving money on the table.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="relative grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/15 rounded-full px-4 py-1.5 text-white text-sm font-medium mb-5">
+                <Clock className="w-4 h-4" />
+                Estimates delivered in 24–48 hours
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+                Ready to Win
+                <br />More Bids?
+              </h2>
+              <p className="text-orange-100 text-lg leading-relaxed">
+                Send us your plans and get a professional, bankable estimate fast. Stop losing projects to competitors with better numbers.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4">
               <Link
                 href="/get-a-quote"
-                className="flex items-center gap-2 px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-orange-50 transition-colors"
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-orange-50 transition-colors shadow-lg"
               >
-                Get a Free Quote <ArrowRight className="w-5 h-5" />
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
                 href="tel:+19283817910"
-                className="px-8 py-4 border-2 border-white/40 rounded-xl text-white font-semibold text-lg hover:bg-white/10 transition-colors"
+                className="flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/30 rounded-xl text-white font-semibold text-lg hover:bg-white/10 transition-colors"
               >
-                Call +1 (928) 381-7910
+                <Phone className="w-5 h-5" />
+                +1 (928) 381-7910
               </a>
+              <p className="text-orange-200/70 text-sm text-center">No commitment. Free consultation included.</p>
             </div>
           </div>
         </motion.div>

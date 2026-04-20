@@ -4,7 +4,7 @@ import CTA from "@/components/home/CTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing | Alpha Estimation",
+  title: "Pricing",
   description: "Transparent construction estimating pricing. Starting at $349 per project. No hidden fees.",
 };
 

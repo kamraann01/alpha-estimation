@@ -4,7 +4,7 @@ import { Building2, Home, FileSpreadsheet, HardHat, Factory, Lightbulb, ArrowRig
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
-  title: "Commercial Estimating Services | Alpha Estimation",
+  title: "Commercial Estimating Services",
   description: "Professional commercial construction estimating. Offices, retail, multi-family, and large-scale commercial projects.",
 };
 

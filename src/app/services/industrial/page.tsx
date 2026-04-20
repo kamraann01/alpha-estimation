@@ -4,7 +4,7 @@ import { Factory, ArrowRight } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
-  title: "Industrial Estimating Services | Alpha Estimation",
+  title: "Industrial Estimating Services",
   description: "Specialized estimating for industrial construction — warehouses, manufacturing, plants and more.",
 };
 

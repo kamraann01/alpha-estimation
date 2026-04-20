@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Users, Award, Target, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | Alpha Estimation",
+  title: "About Us",
   description: "Learn about Alpha Estimation — your trusted construction estimating partner with 15+ years of experience.",
 };
 

@@ -3,7 +3,7 @@ import CTA from "@/components/home/CTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQ | Alpha Estimation",
+  title: "FAQ",
   description: "Frequently asked questions about our construction estimating services.",
 };
 

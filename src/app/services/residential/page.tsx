@@ -4,7 +4,7 @@ import { Home, ArrowRight } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
-  title: "Residential Estimating Services | Alpha Estimation",
+  title: "Residential Estimating Services",
   description: "Accurate residential construction estimating for new homes, additions, and remodels.",
 };
 

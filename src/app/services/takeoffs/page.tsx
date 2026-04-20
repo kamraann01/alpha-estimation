@@ -4,7 +4,7 @@ import { FileSpreadsheet, ArrowRight } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
-  title: "Material Takeoff Services | Alpha Estimation",
+  title: "Material Takeoff Services",
   description: "Precise quantity takeoffs for all construction trades. Fast digital takeoffs from your plans.",
 };
 

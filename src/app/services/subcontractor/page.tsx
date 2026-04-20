@@ -4,7 +4,7 @@ import { HardHat, ArrowRight } from "lucide-react";
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
-  title: "Subcontractor Estimating | Alpha Estimation",
+  title: "Subcontractor Estimating Services",
   description: "Trade-specific estimating for subcontractors. Electrical, plumbing, HVAC, concrete, framing and more.",
 };
 

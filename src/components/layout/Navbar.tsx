@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,25 +18,34 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handler);
+    window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  const showBg = !isHome || scrolled;
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-[#0a0f1e]/95 backdrop-blur-md border-b border-white/10 py-3" : "bg-transparent py-5"
+        showBg
+          ? "bg-[#0a0f1e]/97 backdrop-blur-md border-b border-white/10 py-3 shadow-lg shadow-black/20"
+          : "bg-transparent py-5"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-orange-500/30">
               AE
             </div>
             <span className="font-bold text-xl text-white">
@@ -44,21 +54,26 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             <Link href="/" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</Link>
 
             {/* Services Dropdown */}
             <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
               <button className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm font-medium">
-                Services <ChevronDown className="w-4 h-4" />
+                Services <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicesOpen && "rotate-180")} />
               </button>
               {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 glass rounded-xl py-2 shadow-2xl">
-                  {services.map((s) => (
-                    <Link key={s.href} href={s.href} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">
-                      {s.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 mt-2 w-60 bg-[#0d1427] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50">
+                  <Link href="/services" className="block px-4 py-2.5 text-xs text-orange-500 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors">
+                    All Services →
+                  </Link>
+                  <div className="border-t border-white/5 mt-1 pt-1">
+                    {services.map((s) => (
+                      <Link key={s.href} href={s.href} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors">
+                        {s.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -66,22 +81,26 @@ export default function Navbar() {
             <Link href="/how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">How It Works</Link>
             <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Pricing</Link>
             <Link href="/about" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</Link>
-            <Link href="/faq" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">FAQ</Link>
+            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</Link>
           </nav>
 
           {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             <a href="tel:+19283817910" className="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition-colors">
               <Phone className="w-4 h-4 text-orange-500" />
               +1 (928) 381-7910
             </a>
-            <Link href="/get-a-quote" className="px-5 py-2.5 gradient-bg rounded-lg text-white font-semibold text-sm hover:opacity-90 transition-opacity">
+            <Link href="/get-a-quote" className="px-5 py-2.5 gradient-bg rounded-lg text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-md shadow-orange-500/20">
               Get a Quote
             </Link>
           </div>
 
           {/* Mobile Toggle */}
-          <button className="lg:hidden text-white" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button
+            className="lg:hidden text-white p-1"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -89,25 +108,31 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#0d1427] border-t border-white/10 px-4 py-6 space-y-4">
-          <Link href="/" className="block text-gray-300 hover:text-white py-2" onClick={() => setMobileOpen(false)}>Home</Link>
-          <div>
-            <p className="text-xs uppercase tracking-wider text-gray-500 mb-2">Services</p>
+        <div className="lg:hidden bg-[#0d1427] border-t border-white/10 px-4 py-6 space-y-1">
+          <Link href="/" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Home</Link>
+          <div className="py-2 px-3">
+            <p className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-semibold">Services</p>
             {services.map((s) => (
-              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-1.5 pl-3" onClick={() => setMobileOpen(false)}>
+              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-2 pl-3 hover:text-orange-400 transition-colors text-sm" onClick={() => setMobileOpen(false)}>
                 {s.label}
               </Link>
             ))}
           </div>
-          <Link href="/how-it-works" className="block text-gray-300 hover:text-white py-2" onClick={() => setMobileOpen(false)}>How It Works</Link>
-          <Link href="/pricing" className="block text-gray-300 hover:text-white py-2" onClick={() => setMobileOpen(false)}>Pricing</Link>
-          <Link href="/about" className="block text-gray-300 hover:text-white py-2" onClick={() => setMobileOpen(false)}>About</Link>
-          <Link href="/faq" className="block text-gray-300 hover:text-white py-2" onClick={() => setMobileOpen(false)}>FAQ</Link>
-          <Link href="/get-a-quote" className="block w-full text-center px-5 py-3 gradient-bg rounded-lg text-white font-semibold" onClick={() => setMobileOpen(false)}>
-            Get a Free Quote
-          </Link>
+          <Link href="/how-it-works" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>How It Works</Link>
+          <Link href="/pricing" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Pricing</Link>
+          <Link href="/about" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>About</Link>
+          <Link href="/contact" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Contact</Link>
+          <div className="pt-3 space-y-3">
+            <a href="tel:+19283817910" className="flex items-center gap-2 text-gray-300 px-3 py-2">
+              <Phone className="w-4 h-4 text-orange-500" /> +1 (928) 381-7910
+            </a>
+            <Link href="/get-a-quote" className="block w-full text-center px-5 py-3.5 gradient-bg rounded-xl text-white font-bold shadow-lg shadow-orange-500/20" onClick={() => setMobileOpen(false)}>
+              Get a Free Quote
+            </Link>
+          </div>
         </div>
       )}
     </header>
   );
 }
+

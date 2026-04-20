@@ -16,9 +16,9 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="pt-20">
+    <div className="pt-24">
       {/* Hero */}
-      <section className="max-w-5xl mx-auto px-4 py-24 text-center">
+      <section className="max-w-5xl mx-auto px-4 pt-16 pb-16 text-center">
         <p className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3">About Us</p>
         <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
           Your Trusted <span className="gradient-text">Estimation Partner</span>

@@ -19,8 +19,8 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="pt-20">
-      <section className="max-w-4xl mx-auto px-4 py-24 text-center">
+    <div className="pt-24">
+      <section className="max-w-4xl mx-auto px-4 pt-16 pb-12 text-center">
         <p className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3">Services</p>
         <h1 className="text-5xl font-bold text-white mb-4">Full-Service <span className="gradient-text">Estimating</span></h1>
         <p className="text-gray-400 text-xl max-w-2xl mx-auto">

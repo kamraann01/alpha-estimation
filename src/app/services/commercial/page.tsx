@@ -23,8 +23,8 @@ const trades = ["General Conditions", "Concrete", "Masonry", "Structural Steel",
 
 export default function CommercialPage() {
   return (
-    <div className="pt-20">
-      <section className="max-w-5xl mx-auto px-4 py-24">
+    <div className="pt-24">
+      <section className="max-w-5xl mx-auto px-4 pt-16 pb-16">
         <Link href="/services" className="text-orange-500 text-sm hover:underline mb-6 inline-block">← All Services</Link>
         <div className="flex items-center gap-4 mb-6">
           <div className="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center">

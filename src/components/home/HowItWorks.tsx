@@ -24,10 +24,11 @@ const steps = [
   },
 ];
 
-export default function HowItWorks() {
+export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
     <section className="section-padding bg-[#0d1225]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {!hideHeader && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,6 +43,7 @@ export default function HowItWorks() {
             Getting your estimate is simple. Three steps and you&apos;re ready to bid.
           </p>
         </motion.div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connector line */}

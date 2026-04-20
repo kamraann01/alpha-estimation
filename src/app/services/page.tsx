@@ -14,7 +14,7 @@ const services = [
   { icon: FileSpreadsheet, title: "Material Takeoffs", desc: "Precise quantity takeoffs for all trades — delivered in 24–48 hours.", href: "/services/takeoffs" },
   { icon: HardHat, title: "Subcontractor Estimating", desc: "Trade-specific estimates for electrical, plumbing, HVAC, and more.", href: "/services/subcontractor" },
   { icon: Factory, title: "Industrial Estimating", desc: "Warehouses, manufacturing facilities, plants and industrial projects.", href: "/services/industrial" },
-  { icon: Lightbulb, title: "Conceptual Estimating", desc: "Early-stage budget estimates to help with planning and feasibility.", href: "/services/commercial" },
+  { icon: Lightbulb, title: "Conceptual Estimating", desc: "Early-stage budget estimates to help with planning and feasibility.", href: "/get-a-quote" },
 ];
 
 export default function ServicesPage() {

@@ -46,11 +46,11 @@ export default function ContactPage() {
           {/* Info */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
             {[
-              { icon: Phone, title: "Phone", value: "+1 (928) 381-7910", href: "tel:+19283817910" },
-              { icon: Mail, title: "Email", value: "contact@alphaestimation.com", href: "mailto:contact@alphaestimation.com" },
-              { icon: MapPin, title: "Office", value: "117 S Lexington Street STE 100, Harrisonville, MO 64701", href: "https://maps.google.com/?q=117+S+Lexington+Street+STE+100+Harrisonville+MO+64701" },
+              { icon: Phone, title: "Phone", value: "+1 (928) 381-7910", href: "tel:+19283817910", external: false },
+              { icon: Mail, title: "Email", value: "contact@alphaestimation.com", href: "mailto:contact@alphaestimation.com", external: false },
+              { icon: MapPin, title: "Office", value: "117 S Lexington Street STE 100, Harrisonville, MO 64701", href: "https://maps.google.com/?q=117+S+Lexington+Street+STE+100+Harrisonville+MO+64701", external: true },
             ].map((item, i) => (
-              <a key={i} href={item.href} className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-orange-500/30 transition-all block">
+              <a key={i} href={item.href} {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-orange-500/30 transition-all block">
                 <div className="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center shrink-0">
                   <item.icon className="w-5 h-5 text-white" />
                 </div>

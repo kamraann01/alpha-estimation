@@ -180,7 +180,7 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 + i * 0.2 }}
                 className={`absolute glass rounded-xl px-4 py-3 border border-white/10 flex items-center gap-3 min-w-[220px] ${
-                  i === 0 ? "-left-10 -top-5" : "-right-8 -bottom-8"
+                  i === 0 ? "-left-12 top-8" : "-right-8 -bottom-8"
                 }`}
               >
                 <div className={`w-8 h-8 ${card.bg} rounded-lg flex items-center justify-center shrink-0`}>

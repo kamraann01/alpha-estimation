@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const socialLinks = [
   {
-    href: "#",
+    href: "https://www.facebook.com/alphaestimation",
     label: "Facebook",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -12,7 +12,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "#",
+    href: "https://www.linkedin.com/company/alphaestimation",
     label: "LinkedIn",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -22,7 +22,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "#",
+    href: "https://www.youtube.com/@alphaestimation",
     label: "YouTube",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -32,7 +32,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "#",
+    href: "https://x.com/alphaestimation",
     label: "X (Twitter)",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ href, label, svg }) => (
-                <a key={label} href={href} aria-label={label} className="w-9 h-9 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-orange-500 transition-colors">
+                <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-orange-500 transition-colors">
                   {svg}
                 </a>
               ))}

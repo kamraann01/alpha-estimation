@@ -24,15 +24,25 @@ type FormData = z.infer<typeof schema>;
 
 export default function GetAQuotePage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data: FormData) => {
-    // In production: send to API route or email service
-    await new Promise(r => setTimeout(r, 1000));
-    setSubmitted(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Send failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Sorry, something went wrong. Please try again or email us directly.");
+    }
   };
 
   if (submitted) {
@@ -160,6 +170,9 @@ export default function GetAQuotePage() {
               >
                 {isSubmitting ? "Sending..." : "Submit Quote Request →"}
               </button>
+              {submitError && (
+                <p role="alert" className="text-red-400 text-sm text-center">{submitError}</p>
+              )}
             </form>
           </motion.div>
 

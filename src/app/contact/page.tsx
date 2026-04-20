@@ -8,13 +8,32 @@ import { Phone, Mail, MapPin, CheckCircle } from "lucide-react";
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    setError(null);
+    const form = e.currentTarget;
+    const body = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) throw new Error("Send failed");
+      setSubmitted(true);
+    } catch {
+      setError("Sorry, something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -90,6 +109,9 @@ export default function ContactPage() {
               <button type="submit" disabled={loading} className="w-full py-4 gradient-bg rounded-xl text-white font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-60">
                 {loading ? "Sending..." : "Send Message →"}
               </button>
+              {error && (
+                <p role="alert" className="text-red-400 text-sm text-center">{error}</p>
+              )}
             </form>
           </motion.div>
         </div>

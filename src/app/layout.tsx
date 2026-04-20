@@ -36,8 +36,43 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Alpha Estimation",
+    "description": "Professional construction cost estimating services for General Contractors & Subcontractors worldwide.",
+    "url": "https://alphaestimation.com",
+    "telephone": "+19283817910",
+    "email": "contact@alphaestimation.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "117 S Lexington Street STE 100",
+      "addressLocality": "Harrisonville",
+      "addressRegion": "MO",
+      "postalCode": "64701",
+      "addressCountry": "US"
+    },
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "120"
+    },
+    "sameAs": [
+      "https://www.facebook.com/alphaestimation",
+      "https://www.linkedin.com/company/alphaestimation"
+    ]
+  };
+
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased bg-[#0a0f1e] text-white">
         <Navbar />
         <main>{children}</main>

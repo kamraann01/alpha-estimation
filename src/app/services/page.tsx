@@ -28,6 +28,23 @@ export default function ServicesPage() {
         </p>
       </section>
 
+      {/* Quick stats bar */}
+      <div className="border-y border-white/[0.07] bg-[#0d1225] py-5">
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {[
+            { value: "24–48hr", label: "Delivery" },
+            { value: "$349", label: "Starting Price" },
+            { value: "98%", label: "Accuracy Rate" },
+            { value: "500+", label: "Projects Done" },
+          ].map((s, i) => (
+            <div key={i} className="px-4 md:border-r md:border-white/[0.07] last:border-0">
+              <div className="text-2xl font-bold gradient-text">{s.value}</div>
+              <div className="text-gray-500 text-xs mt-0.5">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <section className="bg-[#0d1225] section-padding">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

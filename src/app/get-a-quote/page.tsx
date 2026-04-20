@@ -71,30 +71,30 @@ export default function GetAQuotePage() {
             <form onSubmit={handleSubmit(onSubmit)} className="glass rounded-2xl p-8 space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Full Name *</label>
-                  <input {...register("name")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
+                  <label htmlFor="q-name" className="block text-sm text-gray-300 mb-2">Full Name *</label>
+                  <input id="q-name" {...register("name")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
                   {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Email *</label>
-                  <input {...register("email")} type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
+                  <label htmlFor="q-email" className="block text-sm text-gray-300 mb-2">Email *</label>
+                  <input id="q-email" {...register("email")} type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
                   {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Phone *</label>
-                  <input {...register("phone")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="+1 (555) 000-0000" />
+                  <label htmlFor="q-phone" className="block text-sm text-gray-300 mb-2">Phone *</label>
+                  <input id="q-phone" {...register("phone")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="+1 (555) 000-0000" />
                   {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Company Name</label>
-                  <input {...register("company")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="Your Company LLC" />
+                  <label htmlFor="q-company" className="block text-sm text-gray-300 mb-2">Company Name</label>
+                  <input id="q-company" {...register("company")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="Your Company LLC" />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Project Type *</label>
-                  <select {...register("projectType")} className="w-full bg-[#0d1225] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors">
+                  <label htmlFor="q-projectType" className="block text-sm text-gray-300 mb-2">Project Type *</label>
+                  <select id="q-projectType" {...register("projectType")} className="w-full bg-[#0d1225] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors">
                     <option value="">Select type...</option>
                     <option>Commercial</option>
                     <option>Residential</option>
@@ -106,8 +106,8 @@ export default function GetAQuotePage() {
                   {errors.projectType && <p className="text-red-400 text-xs mt-1">{errors.projectType.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Project Size *</label>
-                  <select {...register("projectSize")} className="w-full bg-[#0d1225] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors">
+                  <label htmlFor="q-projectSize" className="block text-sm text-gray-300 mb-2">Project Size *</label>
+                  <select id="q-projectSize" {...register("projectSize")} className="w-full bg-[#0d1225] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors">
                     <option value="">Select size...</option>
                     <option>Under 2,000 sq ft</option>
                     <option>2,000 – 10,000 sq ft</option>
@@ -118,13 +118,13 @@ export default function GetAQuotePage() {
                   {errors.projectSize && <p className="text-red-400 text-xs mt-1">{errors.projectSize.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Project Location *</label>
-                  <input {...register("location")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="City, State / Country" />
+                  <label htmlFor="q-location" className="block text-sm text-gray-300 mb-2">Project Location *</label>
+                  <input id="q-location" {...register("location")} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="City, State / Country" />
                   {errors.location && <p className="text-red-400 text-xs mt-1">{errors.location.message}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">Turnaround Needed *</label>
-                  <select {...register("turnaround")} className="w-full bg-[#0d1225] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors">
+                  <label htmlFor="q-turnaround" className="block text-sm text-gray-300 mb-2">Turnaround Needed *</label>
+                  <select id="q-turnaround" {...register("turnaround")} className="w-full bg-[#0d1225] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 transition-colors">
                     <option value="">Select...</option>
                     <option>24 hours (Rush)</option>
                     <option>48 hours (Standard)</option>
@@ -136,8 +136,8 @@ export default function GetAQuotePage() {
               </div>
 
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Project Description *</label>
-                <textarea {...register("description")} rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors resize-none" placeholder="Describe your project, scope of work, trades needed, and any special requirements..." />
+                <label htmlFor="q-description" className="block text-sm text-gray-300 mb-2">Project Description *</label>
+                <textarea id="q-description" {...register("description")} rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors resize-none" placeholder="Describe your project, scope of work, trades needed, and any special requirements..." />
                 {errors.description && <p className="text-red-400 text-xs mt-1">{errors.description.message}</p>}
               </div>
 

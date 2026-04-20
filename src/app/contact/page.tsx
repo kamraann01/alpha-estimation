@@ -71,20 +71,20 @@ export default function ContactPage() {
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
             <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-5">
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Your Name</label>
-                <input required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
+                <label htmlFor="contact-name" className="block text-sm text-gray-300 mb-2">Your Name</label>
+                <input id="contact-name" name="name" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="John Smith" />
               </div>
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Email Address</label>
-                <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
+                <label htmlFor="contact-email" className="block text-sm text-gray-300 mb-2">Email Address</label>
+                <input id="contact-email" name="email" required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="john@company.com" />
               </div>
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Subject</label>
-                <input required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="What can we help with?" />
+                <label htmlFor="contact-subject" className="block text-sm text-gray-300 mb-2">Subject</label>
+                <input id="contact-subject" name="subject" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors" placeholder="What can we help with?" />
               </div>
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Message</label>
-                <textarea required rows={5} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors resize-none" placeholder="Tell us about your project or question..." />
+                <label htmlFor="contact-message" className="block text-sm text-gray-300 mb-2">Message</label>
+                <textarea id="contact-message" name="message" required rows={5} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors resize-none" placeholder="Tell us about your project or question..." />
               </div>
               <button type="submit" disabled={loading} className="w-full py-4 gradient-bg rounded-xl text-white font-bold text-lg hover:opacity-90 transition-opacity disabled:opacity-60">
                 {loading ? "Sending..." : "Send Message →"}

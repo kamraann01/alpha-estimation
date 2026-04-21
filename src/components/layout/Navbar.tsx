@@ -14,62 +14,103 @@ const services = [
   { label: "Industrial Estimating", href: "/services/industrial" },
 ];
 
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
+    const handler = () => setScrolled(window.scrollY > 10);
+    handler();
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => { setMobileOpen(false); }, [pathname]);
-
-  const showBg = !isHome || scrolled;
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        showBg
-          ? "bg-[#081c30]/97 backdrop-blur-md border-b border-white/10 py-3 shadow-lg shadow-black/20"
-          : "bg-transparent py-5"
+        scrolled
+          ? "bg-[#081c30]/98 backdrop-blur-lg border-b border-white/10 py-3 shadow-xl shadow-black/30"
+          : "bg-[#081c30]/90 backdrop-blur-md border-b border-white/[0.06] py-4"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-8">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-blue-500/30">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            <div className="w-9 h-9 rounded-xl gradient-bg flex items-center justify-center font-extrabold text-white text-sm shadow-lg shadow-teal-500/30">
               AE
             </div>
-            <span className="font-bold text-xl text-white">
+            <span className="font-bold text-[1.15rem] text-white tracking-tight">
               Alpha<span className="gradient-text">Estimation</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">
-            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/" ? "text-white" : "text-gray-300 hover:text-white")}>Home</Link>
+          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center" aria-label="Main navigation">
+
+            <Link
+              href="/"
+              aria-current={pathname === "/" ? "page" : undefined}
+              className={cn(
+                "px-3.5 py-2 rounded-lg text-sm font-medium transition-colors",
+                pathname === "/" ? "text-white bg-white/[0.07]" : "text-gray-300 hover:text-white hover:bg-white/[0.05]"
+              )}
+            >
+              Home
+            </Link>
 
             {/* Services Dropdown */}
-            <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <button className={cn("flex items-center gap-1 transition-colors text-sm font-medium", pathname.startsWith("/services") ? "text-white" : "text-gray-300 hover:text-white")} aria-expanded={servicesOpen} aria-haspopup="menu">
-                Services <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicesOpen && "rotate-180")} />
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                className={cn(
+                  "flex items-center gap-1 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors",
+                  pathname.startsWith("/services") ? "text-white bg-white/[0.07]" : "text-gray-300 hover:text-white hover:bg-white/[0.05]"
+                )}
+                aria-expanded={servicesOpen}
+                aria-haspopup="menu"
+              >
+                Services
+                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", servicesOpen && "rotate-180")} />
               </button>
               {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-60 bg-[#0c2140] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50" role="menu">
-                  <Link href="/services" className="block px-4 py-2.5 text-xs text-teal-400 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors" role="menuitem">
+                <div
+                  className="absolute top-full left-0 mt-1.5 w-64 bg-[#0c2140] border border-white/10 rounded-2xl py-2 shadow-2xl shadow-black/60"
+                  role="menu"
+                >
+                  <Link
+                    href="/services"
+                    className="block px-4 py-2.5 text-xs text-teal-400 font-bold uppercase tracking-widest hover:bg-white/5 transition-colors rounded-t-xl"
+                    role="menuitem"
+                  >
                     All Services →
                   </Link>
-                  <div className="border-t border-white/5 mt-1 pt-1">
+                  <div className="border-t border-white/[0.06] mt-1 pt-1">
                     {services.map((s) => (
-                      <Link key={s.href} href={s.href} className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors" role="menuitem">
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/[0.05] transition-colors"
+                        role="menuitem"
+                      >
                         {s.label}
                       </Link>
                     ))}
@@ -78,60 +119,96 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/how-it-works" aria-current={pathname === "/how-it-works" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/how-it-works" ? "text-white" : "text-gray-300 hover:text-white")}>How It Works</Link>
-            <Link href="/#case-studies" className={cn("transition-colors text-sm font-medium", "text-gray-300 hover:text-white")}>Case Studies</Link>
-            <Link href="/pricing" aria-current={pathname === "/pricing" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/pricing" ? "text-white" : "text-gray-300 hover:text-white")}>Pricing</Link>
-            <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/about" ? "text-white" : "text-gray-300 hover:text-white")}>About</Link>
-            <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/contact" ? "text-white" : "text-gray-300 hover:text-white")}>Contact</Link>
+            {navLinks.slice(1).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={pathname === link.href ? "page" : undefined}
+                className={cn(
+                  "px-3.5 py-2 rounded-lg text-sm font-medium transition-colors",
+                  pathname === link.href ? "text-white bg-white/[0.07]" : "text-gray-300 hover:text-white hover:bg-white/[0.05]"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+19283817910" className="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition-colors">
-              <Phone className="w-4 h-4 text-teal-400" />
-              +1 (928) 381-7910
+          {/* Right CTA */}
+          <div className="hidden lg:flex items-center gap-4 shrink-0">
+            <a
+              href="tel:+19283817910"
+              className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-teal-400" />
+              <span className="tabular-nums">+1 (928) 381-7910</span>
             </a>
-            <Link href="/get-a-quote" className="px-5 py-2.5 gradient-bg rounded-lg text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-md shadow-blue-500/20">
-              Get a Quote
+            <Link
+              href="/get-a-quote"
+              className="inline-flex items-center gap-2 px-5 py-2.5 gradient-bg rounded-xl text-white font-bold text-sm hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-teal-500/25 border border-teal-400/20"
+            >
+              Get Free Quote
             </Link>
           </div>
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden text-white p-1"
+            className="lg:hidden text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <nav id="mobile-nav" className="lg:hidden bg-[#0c2140] border-t border-white/10 px-4 py-6 space-y-1" aria-label="Mobile navigation">
-          <Link href="/" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Home</Link>
-          <div className="py-2 px-3">
-            <p className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-semibold">Services</p>
+        <nav
+          id="mobile-nav"
+          className="lg:hidden bg-[#081c30] border-t border-white/[0.08] px-4 pt-4 pb-6 space-y-0.5"
+          aria-label="Mobile navigation"
+        >
+          <Link href="/" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-xl hover:bg-white/[0.05] transition-colors text-sm font-medium" onClick={() => setMobileOpen(false)}>Home</Link>
+
+          {/* Services section */}
+          <div className="px-3 py-2">
+            <p className="text-[0.65rem] uppercase tracking-widest text-gray-500 font-bold mb-2">Services</p>
             {services.map((s) => (
-              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-2 pl-3 hover:text-teal-400 transition-colors text-sm" onClick={() => setMobileOpen(false)}>
+              <Link
+                key={s.href}
+                href={s.href}
+                className="block text-gray-400 hover:text-teal-400 py-2 pl-2 text-sm transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
                 {s.label}
               </Link>
             ))}
           </div>
-          <Link href="/how-it-works" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>How It Works</Link>
-          <Link href="/#case-studies" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Case Studies</Link>
-          <Link href="/pricing" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Pricing</Link>
-          <Link href="/about" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>About</Link>
-          <Link href="/contact" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Contact</Link>
-          <div className="pt-3 space-y-3">
-            <a href="tel:+19283817910" className="flex items-center gap-2 text-gray-300 px-3 py-2">
+
+          {navLinks.slice(1).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-xl hover:bg-white/[0.05] transition-colors text-sm font-medium"
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <div className="pt-4 space-y-3 border-t border-white/[0.06] mt-3">
+            <a href="tel:+19283817910" className="flex items-center gap-2 text-gray-400 px-3 py-2 text-sm">
               <Phone className="w-4 h-4 text-teal-400" /> +1 (928) 381-7910
             </a>
-            <Link href="/get-a-quote" className="block w-full text-center px-5 py-3.5 gradient-bg rounded-xl text-white font-bold shadow-lg shadow-blue-500/20" onClick={() => setMobileOpen(false)}>
-              Get a Free Quote
+            <Link
+              href="/get-a-quote"
+              className="block w-full text-center px-5 py-3.5 gradient-bg rounded-xl text-white font-bold shadow-lg shadow-teal-500/25"
+              onClick={() => setMobileOpen(false)}
+            >
+              Get Free Quote
             </Link>
           </div>
         </nav>
@@ -139,4 +216,3 @@ export default function Navbar() {
     </header>
   );
 }
-

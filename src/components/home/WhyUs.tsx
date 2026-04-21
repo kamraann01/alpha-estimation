@@ -17,7 +17,7 @@ const reasons = [
   {
     icon: MapPin,
     title: "Local Pricing Data",
-    desc: "Estimates adjusted for your project's zip code — accurate labor rates, material costs, and market conditions.",
+    desc: "Estimates adjusted for your project\'s zip code — accurate labor rates, material costs, and market conditions.",
   },
   {
     icon: Users,
@@ -54,10 +54,14 @@ export default function WhyUs() {
             <p className="text-gray-400 text-lg leading-relaxed mb-8">
               Most contractors lose bids simply because they don&apos;t have time to estimate properly. We solve that. Send us your plans and focus on running your business — we handle the rest.
             </p>
-            <div className="glass rounded-2xl p-6 border-l-4 border-orange-500">
-              <p className="text-white font-semibold mb-2">The average contractor misses</p>
-              <p className="text-5xl font-bold gradient-text">$200K+</p>
-              <p className="text-gray-400 mt-1">in monthly project revenue due to missed bids</p>
+
+            {/* Callout stat */}
+            <div className="relative rounded-2xl p-6 overflow-hidden bg-gradient-to-br from-orange-500/10 to-transparent border border-orange-500/20">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-orange-500/5 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+              <p className="text-gray-300 text-sm mb-2 relative">The average contractor misses</p>
+              <p className="text-5xl font-bold gradient-text relative">$200K+</p>
+              <p className="text-gray-400 text-sm mt-2 relative">in monthly project revenue due to missed bids</p>
             </div>
           </motion.div>
 
@@ -70,9 +74,11 @@ export default function WhyUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="glass rounded-xl p-5 hover:border-orange-500/30 transition-colors"
+                className="glass rounded-xl p-5 hover:border-orange-500/25 hover:bg-white/[0.04] transition-all duration-200 group"
               >
-                <r.icon className="w-6 h-6 text-orange-500 mb-3" />
+                <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-3 group-hover:bg-orange-500/15 transition-colors">
+                  <r.icon className="w-4 h-4 text-orange-500" />
+                </div>
                 <h4 className="text-white font-semibold mb-1.5 text-sm">{r.title}</h4>
                 <p className="text-gray-400 text-xs leading-relaxed">{r.desc}</p>
               </motion.div>

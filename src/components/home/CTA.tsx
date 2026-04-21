@@ -28,7 +28,7 @@ export default function CTA() {
                 Ready to Win
                 <br />More Bids?
               </h2>
-              <p className="text-blue-100 text-lg leading-relaxed">
+              <p className="text-white/80 text-lg leading-relaxed">
                 Send us your plans and get a professional, bankable estimate fast. Stop losing projects to competitors with better numbers.
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function CTA() {
             <div className="flex flex-col gap-4">
               <Link
                 href="/get-a-quote"
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg"
+                className="group flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#051525] rounded-xl font-bold text-lg hover:bg-teal-50 transition-colors shadow-lg"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -48,7 +48,7 @@ export default function CTA() {
                 <Phone className="w-5 h-5" />
                 +1 (928) 381-7910
               </a>
-              <p className="text-blue-200/70 text-sm text-center">No commitment. Free consultation included.</p>
+              <p className="text-white/50 text-sm text-center">No commitment. Free consultation included.</p>
             </div>
           </div>
         </motion.div>

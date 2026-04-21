@@ -105,7 +105,27 @@ export default function Hero() {
           </div>
 
           {/* Right — Visual */}
-          <div className="hidden lg:block relative pt-20 pb-20">
+          <div className="hidden lg:block">
+            <div className="flex flex-col gap-4">
+            {/* Top badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex justify-end"
+            >
+              <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-lg shadow-black/20">
+                <div className="w-8 h-8 bg-green-400/10 rounded-lg flex items-center justify-center shrink-0 border border-green-500/20">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
+                </div>
+                <div>
+                  <p className="text-white text-xs font-semibold">Estimate Delivered</p>
+                  <p className="text-gray-400 text-xs">Commercial Office &mdash; $2.1M</p>
+                </div>
+                <span className="ml-2 text-gray-500 text-xs whitespace-nowrap pl-2 border-l border-white/10">2h ago</span>
+              </div>
+            </motion.div>
+
             {/* Main card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -153,39 +173,25 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating card — top */}
+            {/* Bottom badge */}
             <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="absolute top-4 left-6 glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30"
-            >
-              <div className="w-9 h-9 bg-green-400/10 rounded-xl flex items-center justify-center shrink-0 border border-green-500/20">
-                <CheckCircle className="w-4 h-4 text-green-400" />
-              </div>
-              <div>
-                <p className="text-white text-xs font-semibold">Estimate Delivered</p>
-                <p className="text-gray-400 text-xs">Commercial Office — $2.1M</p>
-              </div>
-              <span className="ml-2 text-gray-600 text-xs whitespace-nowrap">2h ago</span>
-            </motion.div>
-
-            {/* Floating card — bottom */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
-              className="absolute bottom-4 right-6 glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30"
+              className="flex justify-start"
             >
-              <div className="w-9 h-9 bg-orange-400/10 rounded-xl flex items-center justify-center shrink-0 border border-orange-500/20">
-                <TrendingUp className="w-4 h-4 text-orange-400" />
+              <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-lg shadow-black/20">
+                <div className="w-8 h-8 bg-orange-400/10 rounded-lg flex items-center justify-center shrink-0 border border-orange-500/20">
+                  <TrendingUp className="w-4 h-4 text-orange-400" />
+                </div>
+                <div>
+                  <p className="text-white text-xs font-semibold">Bid Won</p>
+                  <p className="text-gray-400 text-xs">Residential Dev &mdash; 45 units</p>
+                </div>
+                <span className="ml-2 text-gray-500 text-xs whitespace-nowrap pl-2 border-l border-white/10">Yesterday</span>
               </div>
-              <div>
-                <p className="text-white text-xs font-semibold">Bid Won</p>
-                <p className="text-gray-400 text-xs">Residential Dev — 45 units</p>
-              </div>
-              <span className="ml-2 text-gray-600 text-xs whitespace-nowrap">Yesterday</span>
             </motion.div>
+            </div>
           </div>
         </div>
       </div>

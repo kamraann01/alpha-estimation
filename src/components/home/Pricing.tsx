@@ -2,54 +2,61 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Check, Zap } from "lucide-react";
+import { Check, Zap, MessageSquare, ArrowRight } from "lucide-react";
 
 const plans = [
   {
     name: "Starter",
+    badge: null,
     price: "$349",
     per: "per project",
-    desc: "Perfect for small projects and residential takeoffs",
+    desc: "For small projects, single-trade takeoffs, and residential scopes.",
     features: [
-      "Up to 2,000 sq ft",
-      "Single trade takeoff",
-      "48-hour delivery",
-      "PDF estimate",
-      "Email support",
+      { text: "Up to 2,000 sq ft", included: true },
+      { text: "Single trade takeoff", included: true },
+      { text: "48-hour delivery", included: true },
+      { text: "PDF estimate", included: true },
+      { text: "Email support", included: true },
+      { text: "Excel breakdown", included: false },
+      { text: "Revision included", included: false },
     ],
-    cta: "Get Started",
+    cta: "Start Project",
     href: "/get-a-quote",
     popular: false,
   },
   {
     name: "Professional",
+    badge: "Most Popular",
     price: "$699",
     per: "per project",
-    desc: "For mid-size commercial & multi-trade projects",
+    desc: "For mid-size commercial, multi-trade, and multi-family projects.",
     features: [
-      "Up to 10,000 sq ft",
-      "Multi-trade takeoff",
-      "24-hour delivery",
-      "PDF + Excel estimate",
-      "Priority support",
-      "One revision included",
+      { text: "Up to 10,000 sq ft", included: true },
+      { text: "Multi-trade takeoff", included: true },
+      { text: "24-hour delivery", included: true },
+      { text: "PDF estimate", included: true },
+      { text: "Priority support", included: true },
+      { text: "Excel breakdown included", included: true },
+      { text: "One revision included", included: true },
     ],
-    cta: "Get Started",
+    cta: "Start Project",
     href: "/get-a-quote",
     popular: true,
   },
   {
     name: "Enterprise",
+    badge: null,
     price: "Custom",
     per: "contact for quote",
-    desc: "For large-scale or complex project portfolios",
+    desc: "For large-scale, complex, or ongoing project portfolios.",
     features: [
-      "Unlimited square footage",
-      "Full project scope",
-      "Rush delivery available",
-      "Detailed CSI breakdown",
-      "Dedicated estimator",
-      "Unlimited revisions",
+      { text: "Unlimited square footage", included: true },
+      { text: "Full project scope", included: true },
+      { text: "Rush delivery available", included: true },
+      { text: "Detailed CSI breakdown", included: true },
+      { text: "Dedicated estimator", included: true },
+      { text: "Excel breakdown included", included: true },
+      { text: "Unlimited revisions", included: true },
     ],
     cta: "Contact Us",
     href: "/contact",
@@ -61,6 +68,7 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
   return (
     <section className="section-padding bg-[#081c30]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {!hideHeader && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -73,80 +81,112 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
               Simple, <span className="gradient-text">Honest Pricing</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              No hidden fees, no surprises. Choose a plan or request a custom quote for your project.
+              No hourly rates, no hidden fees. Pay per project and know exactly what you&apos;ll get.
             </p>
           </motion.div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
           {plans.map((plan, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative rounded-2xl flex flex-col p-8 overflow-hidden ${
+              transition={{ duration: 0.45, delay: i * 0.1 }}
+              className={`relative rounded-2xl flex flex-col overflow-hidden transition-all duration-300 ${
                 plan.popular
-                  ? "bg-[#0c2140] border-2 border-teal-400/50 shadow-2xl shadow-blue-500/15 scale-105 z-10"
-                  : "bg-[#0c2140] border border-white/10 hover:border-white/20 transition-colors"
+                  ? "bg-[#0c2140] border-2 border-teal-400/50 shadow-2xl shadow-teal-500/10 md:-mt-4"
+                  : "bg-[#0c2140] border border-white/[0.09] hover:border-white/[0.16]"
               }`}
             >
-              {/* Popular card ambient glow */}
+              {/* Top ambient glow for popular */}
               {plan.popular && (
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(0,196,180,0.08),transparent)] pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_30%_at_50%_0%,rgba(0,196,180,0.09),transparent)] pointer-events-none" />
               )}
 
+              {/* Popular badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-4 py-1.5 gradient-bg rounded-full shadow-lg shadow-blue-500/30 z-10">
-                  <Zap className="w-3.5 h-3.5 text-white fill-white" />
-                  <span className="text-white text-xs font-bold uppercase tracking-wide">Most Popular</span>
+                <div className="relative flex justify-center pt-5 pb-0">
+                  <span className="inline-flex items-center gap-1.5 gradient-bg px-4 py-1.5 rounded-full text-white text-xs font-bold uppercase tracking-wide shadow-md shadow-teal-500/30">
+                    <Zap className="w-3 h-3 fill-white" />
+                    {plan.badge}
+                  </span>
                 </div>
               )}
 
-              <div className="mb-5 relative">
+              {/* Header */}
+              <div className={`px-7 ${plan.popular ? "pt-5" : "pt-7"} pb-6 border-b border-white/[0.07]`}>
                 <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{plan.desc}</p>
-              </div>
-
-              <div className="mb-7 relative">
+                <p className="text-sm text-gray-400 leading-relaxed mb-5">{plan.desc}</p>
                 <div className="flex items-end gap-2">
                   <span className="text-5xl font-extrabold text-white tracking-tight">{plan.price}</span>
                 </div>
-                <p className="text-xs mt-1 text-gray-500">{plan.per}</p>
+                <p className="text-xs text-gray-500 mt-1.5">{plan.per}</p>
               </div>
 
-              <ul className="space-y-3 mb-8 flex-1 relative">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 bg-teal-400/15 border border-teal-400/20">
-                      <Check className="w-3 h-3 text-teal-400" />
-                    </div>
-                    <span className="text-sm text-gray-300">{f}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Features */}
+              <div className="px-7 py-6 flex-1">
+                <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-4">What&apos;s included</p>
+                <ul className="space-y-3">
+                  {plan.features.map((f, j) => (
+                    <li key={j} className="flex items-center gap-3">
+                      <div
+                        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
+                          f.included
+                            ? "bg-teal-400/15 border border-teal-400/20"
+                            : "bg-white/[0.04] border border-white/[0.07]"
+                        }`}
+                      >
+                        <Check className={`w-3 h-3 ${f.included ? "text-teal-400" : "text-gray-600"}`} />
+                      </div>
+                      <span className={`text-sm ${f.included ? "text-gray-300" : "text-gray-600 line-through"}`}>
+                        {f.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <Link
-                href={plan.href}
-                className={`block w-full text-center py-3.5 rounded-xl font-bold text-sm transition-all relative ${
-                  plan.popular
-                    ? "gradient-bg text-white hover:opacity-90 shadow-lg shadow-teal-500/25"
-                    : "bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20"
-                }`}
-              >
-                {plan.cta} →
-              </Link>
+              {/* CTA */}
+              <div className="px-7 pb-7">
+                <Link
+                  href={plan.href}
+                  className={`group flex w-full items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm transition-all ${
+                    plan.popular
+                      ? "gradient-bg text-white hover:opacity-90 shadow-lg shadow-teal-500/25"
+                      : "bg-white/[0.05] border border-white/[0.1] text-white hover:bg-white/[0.1] hover:border-white/[0.2]"
+                  }`}
+                >
+                  {plan.cta}
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <p className="text-center text-gray-500 text-sm mt-10">
-          All plans include a free consultation. Custom project?{" "}
-          <Link href="/contact" className="text-teal-400 hover:text-teal-300 underline">
-            Contact us for a quote.
+        {/* Custom quote callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 bg-[#0c2140] border border-white/[0.08] rounded-2xl px-6 py-5"
+        >
+          <MessageSquare className="w-5 h-5 text-teal-400 shrink-0" />
+          <p className="text-gray-400 text-sm text-center sm:text-left">
+            <span className="text-white font-semibold">Have a unique project?</span>{" "}
+            Every project is different — we offer fully custom quotes with no obligation. All plans include a free 15-minute consultation.
+          </p>
+          <Link
+            href="/contact"
+            className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 border border-teal-400/30 text-teal-400 rounded-xl text-sm font-semibold hover:bg-teal-400/10 transition-colors"
+          >
+            Request Custom Quote <ArrowRight className="w-3.5 h-3.5" />
           </Link>
-        </p>
+        </motion.div>
+
       </div>
     </section>
   );

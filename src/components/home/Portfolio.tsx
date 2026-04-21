@@ -179,7 +179,7 @@ export default function Portfolio() {
                 </div>
 
                 <Link
-                  href="/get-a-quote"
+                  href="/#contact"
                   className="inline-flex items-center gap-1.5 text-teal-400 text-sm font-semibold group-hover:gap-2.5 transition-all duration-200 hover:text-teal-300"
                 >
                   Get a similar estimate

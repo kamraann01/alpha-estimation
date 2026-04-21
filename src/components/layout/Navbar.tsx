@@ -20,7 +20,7 @@ const navLinks = [
   { label: "Case Studies", href: "/#case-studies" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {

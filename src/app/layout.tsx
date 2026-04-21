@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FloatingQuoteButton from "@/components/layout/FloatingQuoteButton";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -104,6 +105,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Navbar />
         <main id="main-content">{children}</main>
         <Footer />
+        <FloatingQuoteButton />
       </body>
     </html>
   );

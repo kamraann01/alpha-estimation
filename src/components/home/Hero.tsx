@@ -10,25 +10,6 @@ const trustBadges = [
   { icon: Star, text: "500+ Happy Clients" },
 ];
 
-const floatingCards = [
-  {
-    icon: CheckCircle,
-    color: "text-green-400",
-    bg: "bg-green-400/10",
-    title: "Estimate Delivered",
-    sub: "Commercial Office — $2.1M",
-    time: "2 hours ago",
-  },
-  {
-    icon: TrendingUp,
-    color: "text-orange-400",
-    bg: "bg-orange-400/10",
-    title: "Bid Won",
-    sub: "Residential Development — 45 units",
-    time: "Yesterday",
-  },
-];
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -124,13 +105,13 @@ export default function Hero() {
           </div>
 
           {/* Right — Visual */}
-          <div className="hidden lg:block relative">
+          <div className="hidden lg:block relative pt-20 pb-20">
             {/* Main card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="glass rounded-3xl p-8 border border-white/10"
+              className="glass rounded-3xl p-8 border border-white/10 shadow-2xl shadow-black/40"
             >
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -172,26 +153,39 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating cards */}
-            {floatingCards.map((card, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: i === 0 ? -20 : 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 + i * 0.2 }}
-                className={`absolute glass rounded-xl px-4 py-3 border border-white/10 flex items-center gap-3 min-w-[220px] ${
-                  i === 0 ? "-left-12 top-8" : "-right-8 -bottom-8"
-                }`}
-              >
-                <div className={`w-8 h-8 ${card.bg} rounded-lg flex items-center justify-center shrink-0`}>
-                  <card.icon className={`w-4 h-4 ${card.color}`} />
-                </div>
-                <div>
-                  <p className="text-white text-xs font-semibold">{card.title}</p>
-                  <p className="text-gray-500 text-xs">{card.sub}</p>
-                </div>
-              </motion.div>
-            ))}
+            {/* Floating card — top */}
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="absolute top-4 left-6 glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30"
+            >
+              <div className="w-9 h-9 bg-green-400/10 rounded-xl flex items-center justify-center shrink-0 border border-green-500/20">
+                <CheckCircle className="w-4 h-4 text-green-400" />
+              </div>
+              <div>
+                <p className="text-white text-xs font-semibold">Estimate Delivered</p>
+                <p className="text-gray-400 text-xs">Commercial Office — $2.1M</p>
+              </div>
+              <span className="ml-2 text-gray-600 text-xs whitespace-nowrap">2h ago</span>
+            </motion.div>
+
+            {/* Floating card — bottom */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+              className="absolute bottom-4 right-6 glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30"
+            >
+              <div className="w-9 h-9 bg-orange-400/10 rounded-xl flex items-center justify-center shrink-0 border border-orange-500/20">
+                <TrendingUp className="w-4 h-4 text-orange-400" />
+              </div>
+              <div>
+                <p className="text-white text-xs font-semibold">Bid Won</p>
+                <p className="text-gray-400 text-xs">Residential Dev — 45 units</p>
+              </div>
+              <span className="ml-2 text-gray-600 text-xs whitespace-nowrap">Yesterday</span>
+            </motion.div>
           </div>
         </div>
       </div>

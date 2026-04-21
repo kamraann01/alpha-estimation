@@ -13,32 +13,33 @@ const trustBadges = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0f1e]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(249,115,22,0.15),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_80%,rgba(249,115,22,0.06),transparent)]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
-          }}
-        />
-      </div>
+      {/* Construction photo */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-[#0a0f1e]/90" />
+      {/* Blue glow overlays */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(59,130,246,0.14),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_80%,rgba(59,130,246,0.06),transparent)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left — Copy */}
+          {/* Left */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-orange-400 mb-7 border border-orange-500/20"
+              className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-blue-400 mb-7 border border-blue-500/20"
             >
-              <Star className="w-3.5 h-3.5 fill-orange-400" />
+              <Star className="w-3.5 h-3.5 fill-blue-400" />
               Trusted by 500+ Contractors Worldwide
             </motion.div>
 
@@ -63,7 +64,7 @@ export default function Hero() {
               className="text-lg text-gray-400 leading-relaxed mb-10 max-w-xl"
             >
               We deliver fast, accurate construction cost estimates for General
-              Contractors & Subcontractors worldwide — so you can bid confidently
+              Contractors &amp; Subcontractors worldwide — so you can bid confidently
               and grow your business.
             </motion.p>
 
@@ -75,7 +76,7 @@ export default function Hero() {
             >
               <Link
                 href="/get-a-quote"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 gradient-bg rounded-xl text-white font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-orange-500/25"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 gradient-bg rounded-xl text-white font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-blue-500/25"
               >
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -96,17 +97,15 @@ export default function Hero() {
             >
               {trustBadges.map((b, i) => (
                 <div key={i} className="flex items-center gap-2 text-gray-400">
-                  <b.icon className="w-4 h-4 text-orange-500" />
+                  <b.icon className="w-4 h-4 text-blue-500" />
                   <span className="text-sm">{b.text}</span>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right — Visual: flex column so badges NEVER overlap the main card */}
+          {/* Right — flex column, no absolute badges */}
           <div className="hidden lg:flex flex-col gap-3">
-
-            {/* Top notification badge — aligned right */}
             <motion.div
               initial={{ opacity: 0, y: -12, x: 12 }}
               animate={{ opacity: 1, y: 0, x: 0 }}
@@ -119,13 +118,12 @@ export default function Hero() {
                 </div>
                 <div>
                   <p className="text-white text-xs font-semibold">Estimate Delivered</p>
-                  <p className="text-gray-400 text-xs">Commercial Office &mdash; $2.1M</p>
+                  <p className="text-gray-400 text-xs">Commercial Office — $2.1M</p>
                 </div>
                 <span className="ml-3 text-gray-500 text-xs whitespace-nowrap">2h ago</span>
               </div>
             </motion.div>
 
-            {/* Main card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -172,7 +170,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Bottom notification badge — aligned left */}
             <motion.div
               initial={{ opacity: 0, y: 12, x: -12 }}
               animate={{ opacity: 1, y: 0, x: 0 }}
@@ -180,8 +177,8 @@ export default function Hero() {
               className="self-start"
             >
               <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30">
-                <div className="w-9 h-9 bg-orange-400/10 rounded-xl flex items-center justify-center shrink-0 border border-orange-500/20">
-                  <TrendingUp className="w-4 h-4 text-orange-400" />
+                <div className="w-9 h-9 bg-blue-400/10 rounded-xl flex items-center justify-center shrink-0 border border-blue-500/20">
+                  <TrendingUp className="w-4 h-4 text-blue-400" />
                 </div>
                 <div>
                   <p className="text-white text-xs font-semibold">Bid Won</p>
@@ -190,7 +187,6 @@ export default function Hero() {
                 <span className="ml-3 text-gray-500 text-xs whitespace-nowrap">Yesterday</span>
               </div>
             </motion.div>
-
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ export default function Stats() {
 
   return (
     <section ref={ref} className="py-16 border-y border-white/[0.07] bg-[#0d1225] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(249,115,22,0.04),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(59,130,246,0.04),transparent)]" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
           {stats.map((stat, i) => (

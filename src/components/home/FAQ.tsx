@@ -44,7 +44,7 @@ export default function FAQ({ hideHeader = false }: { hideHeader?: boolean }) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
+          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Common <span className="gradient-text">Questions</span>
           </h2>
@@ -61,7 +61,7 @@ export default function FAQ({ hideHeader = false }: { hideHeader?: boolean }) {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`rounded-xl overflow-hidden border transition-colors duration-200 ${
-                open === i ? "border-orange-500/40 bg-[#131a2e]" : "border-white/8 bg-white/[0.02] hover:border-white/15"
+                open === i ? "border-blue-500/40 bg-[#131a2e]" : "border-white/8 bg-white/[0.02] hover:border-white/15"
               }`}
             >
               <button

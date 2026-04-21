@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ href, label, svg }) => (
-                <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-orange-500 transition-colors">
+                <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-500 transition-colors">
                   {svg}
                 </a>
               ))}
@@ -87,7 +87,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                  <Link href={s.href} className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
                     {s.label}
                   </Link>
                 </li>
@@ -101,7 +101,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {company.map((c) => (
                 <li key={c.href}>
-                  <Link href={c.href} className="text-gray-400 hover:text-orange-400 transition-colors text-sm">
+                  <Link href={c.href} className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
                     {c.label}
                   </Link>
                 </li>
@@ -114,19 +114,19 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-5">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                <Phone className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <a href="tel:+19283817910" className="text-gray-400 hover:text-white text-sm transition-colors">
                   +1 (928) 381-7910
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                <Mail className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <a href="mailto:contact@alphaestimation.com" className="text-gray-400 hover:text-white text-sm transition-colors">
                   contact@alphaestimation.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                 <span className="text-gray-400 text-sm">
                   117 S Lexington Street STE 100,<br />Harrisonville, MO 64701
                 </span>

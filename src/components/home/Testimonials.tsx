@@ -38,24 +38,6 @@ const testimonials = [
     text: "Used them for a 45-unit residential development. Comprehensive estimate, organized Excel output, and they answered every question we had. 10/10.",
     stars: 5,
     initial: "C",
-    color: "from-orange-500 to-orange-700",
-  },
-  {
-    name: "Lisa Chen",
-    role: "Architect",
-    location: "Washington",
-    text: "I recommend Alpha Estimation to all my contractor clients. Their conceptual estimates during design phases are invaluable for keeping projects on budget.",
-    stars: 5,
-    initial: "L",
-    color: "from-pink-500 to-pink-700",
-  },
-  {
-    name: "James O'Brien",
-    role: "HVAC Contractor",
-    location: "Illinois",
-    text: "Fast, accurate, and professional. They understand the trades — not just generic estimating software. Worth every penny.",
-    stars: 5,
-    initial: "J",
     color: "from-teal-500 to-teal-700",
   },
 ];
@@ -70,40 +52,37 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wider mb-3">Client Reviews</p>
+          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">Client Reviews</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             What Contractors <span className="gradient-text">Say About Us</span>
           </h2>
           <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
             <div className="flex items-center gap-0.5">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />)}
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}
             </div>
             <span className="text-white font-bold text-lg">5.0</span>
             <span className="text-gray-400 text-sm">· 120+ verified reviews</span>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-[#0d1427] border border-white/8 rounded-2xl p-6 hover:border-orange-500/20 transition-colors flex flex-col"
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="bg-[#0d1427] border border-white/[0.08] rounded-2xl p-6 hover:border-blue-500/20 transition-colors flex flex-col"
             >
-              {/* Stars */}
               <div className="flex items-center gap-0.5 mb-4">
-                {[...Array(t.stars)].map((_, j) => <Star key={j} className="w-4 h-4 fill-orange-400 text-orange-400" />)}
+                {[...Array(t.stars)].map((_, j) => <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
               </div>
 
-              {/* Quote icon + text */}
-              <Quote className="w-6 h-6 text-orange-500/40 mb-3 shrink-0" />
+              <Quote className="w-6 h-6 text-blue-500/40 mb-3 shrink-0" />
               <p className="text-gray-300 text-sm leading-relaxed flex-1 mb-6">{t.text}</p>
 
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-white/8">
+              <div className="flex items-center gap-3 pt-4 border-t border-white/[0.08]">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0 bg-gradient-to-br ${t.color}`}>
                   {t.initial}
                 </div>
@@ -122,4 +101,3 @@ export default function Testimonials() {
     </section>
   );
 }
-

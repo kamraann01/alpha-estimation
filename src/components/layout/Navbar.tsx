@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-orange-500/30">
+            <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm shadow-lg shadow-blue-500/30">
               AE
             </div>
             <span className="font-bold text-xl text-white">
@@ -64,7 +64,7 @@ export default function Navbar() {
               </button>
               {servicesOpen && (
                 <div className="absolute top-full left-0 mt-2 w-60 bg-[#0d1427] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50" role="menu">
-                  <Link href="/services" className="block px-4 py-2.5 text-xs text-orange-500 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors" role="menuitem">
+                  <Link href="/services" className="block px-4 py-2.5 text-xs text-blue-500 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors" role="menuitem">
                     All Services →
                   </Link>
                   <div className="border-t border-white/5 mt-1 pt-1">
@@ -87,10 +87,10 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a href="tel:+19283817910" className="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition-colors">
-              <Phone className="w-4 h-4 text-orange-500" />
+              <Phone className="w-4 h-4 text-blue-500" />
               +1 (928) 381-7910
             </a>
-            <Link href="/get-a-quote" className="px-5 py-2.5 gradient-bg rounded-lg text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-md shadow-orange-500/20">
+            <Link href="/get-a-quote" className="px-5 py-2.5 gradient-bg rounded-lg text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-md shadow-blue-500/20">
               Get a Quote
             </Link>
           </div>
@@ -115,7 +115,7 @@ export default function Navbar() {
           <div className="py-2 px-3">
             <p className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-semibold">Services</p>
             {services.map((s) => (
-              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-2 pl-3 hover:text-orange-400 transition-colors text-sm" onClick={() => setMobileOpen(false)}>
+              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-2 pl-3 hover:text-blue-400 transition-colors text-sm" onClick={() => setMobileOpen(false)}>
                 {s.label}
               </Link>
             ))}
@@ -126,9 +126,9 @@ export default function Navbar() {
           <Link href="/contact" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Contact</Link>
           <div className="pt-3 space-y-3">
             <a href="tel:+19283817910" className="flex items-center gap-2 text-gray-300 px-3 py-2">
-              <Phone className="w-4 h-4 text-orange-500" /> +1 (928) 381-7910
+              <Phone className="w-4 h-4 text-blue-500" /> +1 (928) 381-7910
             </a>
-            <Link href="/get-a-quote" className="block w-full text-center px-5 py-3.5 gradient-bg rounded-xl text-white font-bold shadow-lg shadow-orange-500/20" onClick={() => setMobileOpen(false)}>
+            <Link href="/get-a-quote" className="block w-full text-center px-5 py-3.5 gradient-bg rounded-xl text-white font-bold shadow-lg shadow-blue-500/20" onClick={() => setMobileOpen(false)}>
               Get a Free Quote
             </Link>
           </div>

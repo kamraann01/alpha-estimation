@@ -26,21 +26,21 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0a0f1e; }
-::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2563eb; }
 
 /* Selection */
-::selection { background: rgba(249, 115, 22, 0.3); color: #fff; }
+::selection { background: rgba(59, 130, 246, 0.3); color: #fff; }
 
 .gradient-text {
-  background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
 }
 
 .glass {
@@ -59,8 +59,8 @@ body {
 }
 .glass-hover:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(249, 115, 22, 0.28);
-  box-shadow: 0 0 32px rgba(249, 115, 22, 0.06);
+  border-color: rgba(59, 130, 246, 0.28);
+  box-shadow: 0 0 32px rgba(59, 130, 246, 0.06);
 }
 
 .section-padding {

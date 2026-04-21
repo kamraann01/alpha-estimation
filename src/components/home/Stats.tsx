@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import CountUp from "react-countup";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const stats = [
   { value: 500, suffix: "+", label: "Projects Completed", desc: "Across all sectors" },
@@ -11,13 +10,41 @@ const stats = [
   { value: 15, suffix: "+", label: "Years Experience", desc: "Combined team expertise" },
 ];
 
+function Counter({ end, suffix, active }: { end: number; suffix: string; active: boolean }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+    const duration = 2000;
+    const steps = 60;
+    const increment = end / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [active, end]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
+}
+
 export default function Stats() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section ref={ref} className="py-16 border-y border-white/[0.07] bg-[#0d1225] relative overflow-hidden">
-      {/* Subtle orange glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(249,115,22,0.04),transparent)]" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
@@ -30,11 +57,7 @@ export default function Stats() {
               className="text-center lg:border-r lg:border-white/[0.07] last:border-0 px-4"
             >
               <div className="text-4xl md:text-5xl font-bold gradient-text mb-1">
-                {isInView ? (
-                  <><CountUp end={stat.value} duration={2.5} />{stat.suffix}</>
-                ) : (
-                  <span>0{stat.suffix}</span>
-                )}
+                <Counter end={stat.value} suffix={stat.suffix} active={isInView} />
               </div>
               <p className="text-white font-semibold text-sm mb-0.5">{stat.label}</p>
               <p className="text-gray-500 text-xs">{stat.desc}</p>

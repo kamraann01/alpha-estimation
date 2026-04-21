@@ -13,14 +13,15 @@ const trustBadges = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background layers */}
+      {/* Background */}
       <div className="absolute inset-0 bg-[#0a0f1e]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(249,115,22,0.15),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_80%,rgba(249,115,22,0.06),transparent)]" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }}
         />
@@ -28,6 +29,7 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+
           {/* Left — Copy */}
           <div>
             <motion.div
@@ -60,7 +62,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-gray-400 leading-relaxed mb-10 max-w-xl"
             >
-              We deliver fast, accurate construction cost estimates for General Contractors & Subcontractors worldwide — so you can bid confidently and grow your business.
+              We deliver fast, accurate construction cost estimates for General
+              Contractors & Subcontractors worldwide — so you can bid confidently
+              and grow your business.
             </motion.p>
 
             <motion.div
@@ -78,7 +82,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 glass rounded-xl text-white font-semibold text-base hover:bg-white/8 transition-colors border border-white/10 hover:border-white/20"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 glass rounded-xl text-white font-semibold text-base hover:bg-white/[0.08] transition-colors border border-white/10 hover:border-white/20"
               >
                 View Services
               </Link>
@@ -99,102 +103,98 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Visual */}
-          <div className="hidden lg:block">
-            <div className="relative">
-              {/* Ambient glow behind card */}
-              <div className="absolute inset-4 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(249,115,22,0.07),transparent)] rounded-3xl pointer-events-none" />
+          {/* Right — Visual: flex column so badges NEVER overlap the main card */}
+          <div className="hidden lg:flex flex-col gap-3">
 
-              {/* Top badge — sits in the mt-16 space above the main card */}
-              <motion.div
-                initial={{ opacity: 0, x: 20, y: -10 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute top-0 right-4 z-10"
-              >
-                <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30">
-                  <div className="w-8 h-8 bg-green-400/10 rounded-lg flex items-center justify-center shrink-0 border border-green-500/20">
-                    <CheckCircle className="w-4 h-4 text-green-400" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs font-semibold">Estimate Delivered</p>
-                    <p className="text-gray-400 text-xs">Commercial Office &mdash; $2.1M</p>
-                  </div>
-                  <span className="ml-2 text-gray-500 text-xs whitespace-nowrap pl-2 border-l border-white/10">2h ago</span>
+            {/* Top notification badge — aligned right */}
+            <motion.div
+              initial={{ opacity: 0, y: -12, x: 12 }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="self-end"
+            >
+              <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30">
+                <div className="w-9 h-9 bg-green-400/10 rounded-xl flex items-center justify-center shrink-0 border border-green-500/20">
+                  <CheckCircle className="w-4 h-4 text-green-400" />
                 </div>
-              </motion.div>
-
-              {/* Main card — mt-16/mb-14 create space for floating badges */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="glass rounded-3xl p-8 border border-white/10 shadow-2xl shadow-black/40 mt-16 mb-14"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <p className="text-gray-400 text-sm">Project Estimate</p>
-                    <h3 className="text-white font-bold text-lg">Commercial Office — 12,000 sq ft</h3>
-                  </div>
-                  <span className="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-semibold rounded-full border border-green-500/20">
-                    Delivered
-                  </span>
+                <div>
+                  <p className="text-white text-xs font-semibold">Estimate Delivered</p>
+                  <p className="text-gray-400 text-xs">Commercial Office &mdash; $2.1M</p>
                 </div>
+                <span className="ml-3 text-gray-500 text-xs whitespace-nowrap">2h ago</span>
+              </div>
+            </motion.div>
 
-                <div className="space-y-3 mb-6">
-                  {[
-                    { label: "Concrete & Foundations", value: "$148,000", pct: 22 },
-                    { label: "Structural Steel", value: "$210,000", pct: 31 },
-                    { label: "MEP Systems", value: "$195,000", pct: 29 },
-                    { label: "Finishes & Interiors", value: "$122,000", pct: 18 },
-                  ].map((item, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-gray-400">{item.label}</span>
-                        <span className="text-white font-medium">{item.value}</span>
-                      </div>
-                      <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${item.pct}%` }}
-                          transition={{ duration: 0.8, delay: 0.6 + i * 0.1 }}
-                          className="h-full gradient-bg rounded-full"
-                        />
-                      </div>
+            {/* Main card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="glass rounded-3xl p-8 border border-white/10 shadow-2xl shadow-black/40"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <p className="text-gray-400 text-sm">Project Estimate</p>
+                  <h3 className="text-white font-bold text-lg">Commercial Office — 12,000 sq ft</h3>
+                </div>
+                <span className="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-semibold rounded-full border border-green-500/20">
+                  Delivered
+                </span>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                {[
+                  { label: "Concrete & Foundations", value: "$148,000", pct: 22 },
+                  { label: "Structural Steel", value: "$210,000", pct: 31 },
+                  { label: "MEP Systems", value: "$195,000", pct: 29 },
+                  { label: "Finishes & Interiors", value: "$122,000", pct: 18 },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-gray-400">{item.label}</span>
+                      <span className="text-white font-medium">{item.value}</span>
                     </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between pt-5 border-t border-white/10">
-                  <span className="text-gray-400 text-sm">Total Estimate</span>
-                  <span className="text-2xl font-bold text-white">$675,000</span>
-                </div>
-              </motion.div>
-
-              {/* Bottom badge — sits in the mb-14 space below the main card */}
-              <motion.div
-                initial={{ opacity: 0, x: -20, y: 10 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.0 }}
-                className="absolute bottom-0 left-4 z-10"
-              >
-                <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30">
-                  <div className="w-8 h-8 bg-orange-400/10 rounded-lg flex items-center justify-center shrink-0 border border-orange-500/20">
-                    <TrendingUp className="w-4 h-4 text-orange-400" />
+                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${item.pct}%` }}
+                        transition={{ duration: 0.8, delay: 0.6 + i * 0.1 }}
+                        className="h-full gradient-bg rounded-full"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white text-xs font-semibold">Bid Won</p>
-                    <p className="text-gray-400 text-xs">Residential Dev &mdash; 45 units</p>
-                  </div>
-                  <span className="ml-2 text-gray-500 text-xs whitespace-nowrap pl-2 border-l border-white/10">Yesterday</span>
+                ))}
+              </div>
+
+              <div className="flex items-center justify-between pt-5 border-t border-white/10">
+                <span className="text-gray-400 text-sm">Total Estimate</span>
+                <span className="text-2xl font-bold text-white">$675,000</span>
+              </div>
+            </motion.div>
+
+            {/* Bottom notification badge — aligned left */}
+            <motion.div
+              initial={{ opacity: 0, y: 12, x: -12 }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+              className="self-start"
+            >
+              <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30">
+                <div className="w-9 h-9 bg-orange-400/10 rounded-xl flex items-center justify-center shrink-0 border border-orange-500/20">
+                  <TrendingUp className="w-4 h-4 text-orange-400" />
                 </div>
-              </motion.div>
-            </div>
+                <div>
+                  <p className="text-white text-xs font-semibold">Bid Won</p>
+                  <p className="text-gray-400 text-xs">Residential Dev — 45 units</p>
+                </div>
+                <span className="ml-3 text-gray-500 text-xs whitespace-nowrap">Yesterday</span>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </div>
 
-      {/* Fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0f1e] to-transparent" />
     </section>
   );

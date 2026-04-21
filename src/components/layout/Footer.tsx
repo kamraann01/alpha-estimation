@@ -95,9 +95,13 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm shadow-md shadow-teal-500/20">AE</div>
               <span className="font-bold text-xl text-white">Alpha<span className="gradient-text">Estimation</span></span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              Precision construction cost estimates for General Contractors &amp; Subcontractors worldwide. Fast delivery. Guaranteed accuracy.
+            <p className="text-gray-400 text-sm leading-relaxed mb-3">
+              Precision construction cost estimates for General Contractors &amp; Subcontractors. 650+ projects delivered. Guaranteed accuracy.
             </p>
+            <div className="flex items-center gap-1.5 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-400/60" />
+              <span className="text-teal-400/70 text-xs font-medium">Serving contractors in all 50 states</span>
+            </div>
             <div className="flex items-center gap-2.5 mb-6">
               {socialLinks.map(({ href, label, svg }) => (
                 <a

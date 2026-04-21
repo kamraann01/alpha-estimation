@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     default: "Alpha Estimation | Accurate Construction Cost Estimating & Takeoff Services",
     template: "%s | Alpha Estimation",
   },
-  description: "Professional construction cost estimating & takeoff services for General Contractors and Subcontractors worldwide. 500+ projects, 98% satisfaction, 24-48hr turnaround.",
+  description: "Professional construction cost estimating & takeoff services for General Contractors and Subcontractors. 650+ projects completed, 98% satisfaction rate, 24-48hr turnaround. Get your free estimate today.",
   keywords: "construction estimating, cost estimation, takeoff services, construction bids, general contractor estimating, material takeoff, commercial estimating",
   authors: [{ name: "Alpha Estimation" }],
   openGraph: {
     title: "Alpha Estimation | Accurate Construction Cost Estimating & Takeoff Services",
-    description: "Professional construction cost estimating & takeoff services. 500+ projects, 98% satisfaction, 24-48hr delivery.",
+    description: "Construction cost estimating & quantity takeoff services. 650+ projects, 98% satisfaction, 24-48hr delivery. Trusted by GCs and subs nationwide.",
     url: "https://alphaestimation.com",
     siteName: "Alpha Estimation",
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alpha Estimation | Professional Construction Estimating",
-    description: "Accurate construction estimates & takeoff services. 500+ projects, 98% satisfaction, 24-48hr delivery.",
+    description: "Accurate construction estimates & takeoff services. 650+ projects, 98% satisfaction, 24-48hr delivery.",
   },
   alternates: { canonical: "/" },
   robots: {

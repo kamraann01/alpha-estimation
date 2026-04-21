@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://alphaestimation.com"),
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/logo-mark.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },

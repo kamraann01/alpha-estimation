@@ -92,7 +92,15 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center font-bold text-white text-sm shadow-md shadow-teal-500/20">AE</div>
+              <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center shadow-md shadow-teal-500/20">
+                <svg width="22" height="22" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                  <path d="M6 30L18 5L30 30" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <line x1="14" y1="21" x2="22" y2="21" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                  <line x1="16" y1="19.5" x2="16" y2="22.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+                  <line x1="18" y1="19.5" x2="18" y2="22.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+                  <line x1="20" y1="19.5" x2="20" y2="22.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+                </svg>
+              </div>
               <span className="font-bold text-xl text-white">Alpha<span className="gradient-text">Estimation</span></span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-3">

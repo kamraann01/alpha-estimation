@@ -29,10 +29,10 @@ export default function HomeContact() {
   };
 
   const inputCls =
-    "w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.06] transition-all";
+    "w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-teal-400/50 focus:bg-white/[0.06] transition-all";
 
   return (
-    <section className="section-padding bg-[#0a0f1e]" id="contact">
+    <section className="section-padding bg-[#081c30]" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function HomeContact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">Contact Us</p>
+          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Contact Us</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get Your <span className="gradient-text">Free Quote</span> Today
           </h2>
@@ -55,7 +55,7 @@ export default function HomeContact() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-[#0d1425] border border-white/10 rounded-2xl p-8"
+            className="bg-[#0c2140] border border-white/10 rounded-2xl p-8"
           >
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center py-12 gap-4 text-center">
@@ -66,7 +66,7 @@ export default function HomeContact() {
                 <p className="text-gray-400">We’ll get back to you within 2 hours.</p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="text-blue-400 text-sm hover:text-blue-300 transition-colors"
+                  className="text-teal-400 text-sm hover:text-teal-300 transition-colors"
                 >
                   Send another message
                 </button>
@@ -105,13 +105,13 @@ export default function HomeContact() {
                     onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
                     className={inputCls + " appearance-none cursor-pointer"}
                   >
-                    <option value="" className="bg-[#0d1425]">Select service type...</option>
-                    <option value="Commercial Estimating" className="bg-[#0d1425]">Commercial Estimating</option>
-                    <option value="Residential Estimating" className="bg-[#0d1425]">Residential Estimating</option>
-                    <option value="Takeoff Services" className="bg-[#0d1425]">Takeoff Services</option>
-                    <option value="Subcontractor Estimating" className="bg-[#0d1425]">Subcontractor Estimating</option>
-                    <option value="Industrial Estimating" className="bg-[#0d1425]">Industrial Estimating</option>
-                    <option value="General Inquiry" className="bg-[#0d1425]">General Inquiry</option>
+                    <option value="" className="bg-[#0c2140]">Select service type...</option>
+                    <option value="Commercial Estimating" className="bg-[#0c2140]">Commercial Estimating</option>
+                    <option value="Residential Estimating" className="bg-[#0c2140]">Residential Estimating</option>
+                    <option value="Takeoff Services" className="bg-[#0c2140]">Takeoff Services</option>
+                    <option value="Subcontractor Estimating" className="bg-[#0c2140]">Subcontractor Estimating</option>
+                    <option value="Industrial Estimating" className="bg-[#0c2140]">Industrial Estimating</option>
+                    <option value="General Inquiry" className="bg-[#0c2140]">General Inquiry</option>
                   </select>
                 </div>
                 <div>
@@ -131,7 +131,7 @@ export default function HomeContact() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full group inline-flex items-center justify-center gap-2 px-8 py-4 gradient-bg rounded-xl text-white font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-blue-500/25 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full group inline-flex items-center justify-center gap-2 px-8 py-4 gradient-bg rounded-xl text-white font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-teal-500/25 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? "Sending..." : "Send Message"}
                   {status !== "loading" && (
@@ -157,20 +157,20 @@ export default function HomeContact() {
                   { Icon: Mail,  label: "Email us",        value: "contact@alphaestimation.com", href: "mailto:contact@alphaestimation.com" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0">
-                      <item.Icon className="w-5 h-5 text-blue-500" />
+                    <div className="w-10 h-10 bg-teal-400/10 border border-teal-400/20 rounded-xl flex items-center justify-center shrink-0">
+                      <item.Icon className="w-5 h-5 text-teal-400" />
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm mb-0.5">{item.label}</p>
-                      <a href={item.href} className="text-white font-semibold hover:text-blue-400 transition-colors">
+                      <a href={item.href} className="text-white font-semibold hover:text-teal-400 transition-colors">
                         {item.value}
                       </a>
                     </div>
                   </div>
                 ))}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-blue-500" />
+                  <div className="w-10 h-10 bg-teal-400/10 border border-teal-400/20 rounded-xl flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-teal-400" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm mb-0.5">Office location</p>

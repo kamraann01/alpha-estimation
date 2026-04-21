@@ -6,7 +6,7 @@ import { ArrowRight, Phone, Clock } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="section-padding bg-[#0a0f1e]">
+    <section className="section-padding bg-[#081c30]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

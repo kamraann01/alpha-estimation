@@ -11,7 +11,7 @@ const testimonials = [
     text: "Alpha Estimation saved us on a $2.1M commercial project. Their estimate was spot-on and delivered in less than 24 hours. We won the bid and hit budget.",
     stars: 5,
     initial: "M",
-    color: "from-blue-500 to-blue-700",
+    color: "from-teal-500 to-teal-700",
   },
   {
     name: "Sarah Johnson",
@@ -44,7 +44,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="section-padding bg-[#0d1225]">
+    <section className="section-padding bg-[#0c2140]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">Client Reviews</p>
+          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Client Reviews</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             What Contractors <span className="gradient-text">Say About Us</span>
           </h2>
@@ -73,13 +73,13 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-[#0d1427] border border-white/[0.08] rounded-2xl p-6 hover:border-blue-500/20 transition-colors flex flex-col"
+              className="bg-[#0c2140] border border-white/[0.08] rounded-2xl p-6 hover:border-teal-400/20 transition-colors flex flex-col"
             >
               <div className="flex items-center gap-0.5 mb-4">
                 {[...Array(t.stars)].map((_, j) => <Star key={j} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
               </div>
 
-              <Quote className="w-6 h-6 text-blue-500/40 mb-3 shrink-0" />
+              <Quote className="w-6 h-6 text-teal-400/40 mb-3 shrink-0" />
               <p className="text-gray-300 text-sm leading-relaxed flex-1 mb-6">{t.text}</p>
 
               <div className="flex items-center gap-3 pt-4 border-t border-white/[0.08]">

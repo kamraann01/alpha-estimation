@@ -23,10 +23,10 @@ export default function Hero() {
         }}
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#0a0f1e]/90" />
+      <div className="absolute inset-0 bg-[#081c30]/90" />
       {/* Blue glow overlays */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(59,130,246,0.14),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_80%,rgba(59,130,246,0.06),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,196,180,0.14),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_80%,rgba(0,196,180,0.06),transparent)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -37,9 +37,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-blue-400 mb-7 border border-blue-500/20"
+              className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-teal-400 mb-7 border border-teal-400/20"
             >
-              <Star className="w-3.5 h-3.5 fill-blue-400" />
+              <Star className="w-3.5 h-3.5 fill-teal-400" />
               Trusted by 500+ Contractors Worldwide
             </motion.div>
 
@@ -76,7 +76,7 @@ export default function Hero() {
             >
               <Link
                 href="/get-a-quote"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 gradient-bg rounded-xl text-white font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-blue-500/25"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 gradient-bg rounded-xl text-white font-bold text-base hover:opacity-90 transition-all shadow-lg shadow-teal-500/25"
               >
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -97,7 +97,7 @@ export default function Hero() {
             >
               {trustBadges.map((b, i) => (
                 <div key={i} className="flex items-center gap-2 text-gray-400">
-                  <b.icon className="w-4 h-4 text-blue-500" />
+                  <b.icon className="w-4 h-4 text-teal-400" />
                   <span className="text-sm">{b.text}</span>
                 </div>
               ))}
@@ -177,8 +177,8 @@ export default function Hero() {
               className="self-start"
             >
               <div className="glass rounded-2xl px-4 py-3 border border-white/10 flex items-center gap-3 shadow-xl shadow-black/30">
-                <div className="w-9 h-9 bg-blue-400/10 rounded-xl flex items-center justify-center shrink-0 border border-blue-500/20">
-                  <TrendingUp className="w-4 h-4 text-blue-400" />
+                <div className="w-9 h-9 bg-teal-400/10 rounded-xl flex items-center justify-center shrink-0 border border-teal-400/20">
+                  <TrendingUp className="w-4 h-4 text-teal-400" />
                 </div>
                 <div>
                   <p className="text-white text-xs font-semibold">Bid Won</p>
@@ -191,7 +191,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0f1e] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#081c30] to-transparent" />
     </section>
   );
 }

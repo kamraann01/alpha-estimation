@@ -37,7 +37,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         showBg
-          ? "bg-[#0a0f1e]/97 backdrop-blur-md border-b border-white/10 py-3 shadow-lg shadow-black/20"
+          ? "bg-[#081c30]/97 backdrop-blur-md border-b border-white/10 py-3 shadow-lg shadow-black/20"
           : "bg-transparent py-5"
       )}
     >
@@ -63,8 +63,8 @@ export default function Navbar() {
                 Services <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicesOpen && "rotate-180")} />
               </button>
               {servicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-60 bg-[#0d1427] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50" role="menu">
-                  <Link href="/services" className="block px-4 py-2.5 text-xs text-blue-500 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors" role="menuitem">
+                <div className="absolute top-full left-0 mt-2 w-60 bg-[#0c2140] border border-white/10 rounded-xl py-2 shadow-2xl shadow-black/50" role="menu">
+                  <Link href="/services" className="block px-4 py-2.5 text-xs text-teal-400 font-semibold uppercase tracking-wider hover:bg-white/5 transition-colors" role="menuitem">
                     All Services →
                   </Link>
                   <div className="border-t border-white/5 mt-1 pt-1">
@@ -79,6 +79,7 @@ export default function Navbar() {
             </div>
 
             <Link href="/how-it-works" aria-current={pathname === "/how-it-works" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/how-it-works" ? "text-white" : "text-gray-300 hover:text-white")}>How It Works</Link>
+            <Link href="/#case-studies" className={cn("transition-colors text-sm font-medium", "text-gray-300 hover:text-white")}>Case Studies</Link>
             <Link href="/pricing" aria-current={pathname === "/pricing" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/pricing" ? "text-white" : "text-gray-300 hover:text-white")}>Pricing</Link>
             <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/about" ? "text-white" : "text-gray-300 hover:text-white")}>About</Link>
             <Link href="/contact" aria-current={pathname === "/contact" ? "page" : undefined} className={cn("transition-colors text-sm font-medium", pathname === "/contact" ? "text-white" : "text-gray-300 hover:text-white")}>Contact</Link>
@@ -87,7 +88,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a href="tel:+19283817910" className="flex items-center gap-1.5 text-sm text-gray-300 hover:text-white transition-colors">
-              <Phone className="w-4 h-4 text-blue-500" />
+              <Phone className="w-4 h-4 text-teal-400" />
               +1 (928) 381-7910
             </a>
             <Link href="/get-a-quote" className="px-5 py-2.5 gradient-bg rounded-lg text-white font-semibold text-sm hover:opacity-90 transition-opacity shadow-md shadow-blue-500/20">
@@ -110,23 +111,24 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <nav id="mobile-nav" className="lg:hidden bg-[#0d1427] border-t border-white/10 px-4 py-6 space-y-1" aria-label="Mobile navigation">
+        <nav id="mobile-nav" className="lg:hidden bg-[#0c2140] border-t border-white/10 px-4 py-6 space-y-1" aria-label="Mobile navigation">
           <Link href="/" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Home</Link>
           <div className="py-2 px-3">
             <p className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-semibold">Services</p>
             {services.map((s) => (
-              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-2 pl-3 hover:text-blue-400 transition-colors text-sm" onClick={() => setMobileOpen(false)}>
+              <Link key={s.href} href={s.href} className="block text-gray-300 hover:text-white py-2 pl-3 hover:text-teal-400 transition-colors text-sm" onClick={() => setMobileOpen(false)}>
                 {s.label}
               </Link>
             ))}
           </div>
           <Link href="/how-it-works" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>How It Works</Link>
+          <Link href="/#case-studies" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Case Studies</Link>
           <Link href="/pricing" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Pricing</Link>
           <Link href="/about" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>About</Link>
           <Link href="/contact" className="block text-gray-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Contact</Link>
           <div className="pt-3 space-y-3">
             <a href="tel:+19283817910" className="flex items-center gap-2 text-gray-300 px-3 py-2">
-              <Phone className="w-4 h-4 text-blue-500" /> +1 (928) 381-7910
+              <Phone className="w-4 h-4 text-teal-400" /> +1 (928) 381-7910
             </a>
             <Link href="/get-a-quote" className="block w-full text-center px-5 py-3.5 gradient-bg rounded-xl text-white font-bold shadow-lg shadow-blue-500/20" onClick={() => setMobileOpen(false)}>
               Get a Free Quote

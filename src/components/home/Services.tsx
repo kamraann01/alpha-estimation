@@ -45,7 +45,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="section-padding bg-[#0a0f1e]">
+    <section className="section-padding bg-[#081c30]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">What We Do</p>
+          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">What We Do</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Comprehensive <span className="gradient-text">Estimating Services</span>
           </h2>
@@ -78,7 +78,7 @@ export default function Services() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-5">{service.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-blue-500 text-sm font-medium group-hover:gap-2.5 transition-all duration-200">
+                <span className="inline-flex items-center gap-1.5 text-teal-400 text-sm font-medium group-hover:gap-2.5 transition-all duration-200">
                   Learn more <span className="text-base">→</span>
                 </span>
               </Link>

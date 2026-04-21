@@ -23,7 +23,7 @@ const steps = [
 
 export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
-    <section className="section-padding bg-[#0d1225]">
+    <section className="section-padding bg-[#0c2140]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {!hideHeader && (
           <motion.div
@@ -32,7 +32,7 @@ export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolea
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">Simple Process</p>
+            <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Simple Process</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               How It <span className="gradient-text">Works</span>
             </h2>
@@ -57,8 +57,8 @@ export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolea
             >
               <div className="relative inline-flex items-center justify-center mb-6">
                 {/* Glass icon box — modern flat style */}
-                <div className="w-16 h-16 glass rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-blue-500/30 transition-colors duration-300">
-                  <step.icon className="w-7 h-7 text-blue-500" />
+                <div className="w-16 h-16 glass rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-teal-400/30 transition-colors duration-300">
+                  <step.icon className="w-7 h-7 text-teal-400" />
                 </div>
                 {/* Step number badge */}
                 <span className="absolute -top-2 -right-2 w-6 h-6 gradient-bg rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-blue-500/30">

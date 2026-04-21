@@ -35,7 +35,7 @@ export default function FAQ({ hideHeader = false }: { hideHeader?: boolean }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-[#0d1225]">
+    <section className="section-padding bg-[#0c2140]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {!hideHeader && (
         <motion.div
@@ -44,7 +44,7 @@ export default function FAQ({ hideHeader = false }: { hideHeader?: boolean }) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
+          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">FAQ</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Common <span className="gradient-text">Questions</span>
           </h2>
@@ -61,7 +61,7 @@ export default function FAQ({ hideHeader = false }: { hideHeader?: boolean }) {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`rounded-xl overflow-hidden border transition-colors duration-200 ${
-                open === i ? "border-blue-500/40 bg-[#131a2e]" : "border-white/8 bg-white/[0.02] hover:border-white/15"
+                open === i ? "border-teal-400/40 bg-[#0e2340]" : "border-white/8 bg-white/[0.02] hover:border-white/15"
               }`}
             >
               <button

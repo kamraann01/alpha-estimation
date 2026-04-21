@@ -59,7 +59,7 @@ const plans = [
 
 export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
-    <section className="section-padding bg-[#0a0f1e]">
+    <section className="section-padding bg-[#081c30]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {!hideHeader && (
           <motion.div
@@ -68,7 +68,7 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">Transparent Pricing</p>
+            <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Transparent Pricing</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Simple, <span className="gradient-text">Honest Pricing</span>
             </h2>
@@ -88,13 +88,13 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
               transition={{ delay: i * 0.1 }}
               className={`relative rounded-2xl flex flex-col p-8 overflow-hidden ${
                 plan.popular
-                  ? "bg-[#0d1425] border-2 border-blue-500/50 shadow-2xl shadow-blue-500/15 scale-105 z-10"
-                  : "bg-[#0d1425] border border-white/10 hover:border-white/20 transition-colors"
+                  ? "bg-[#0c2140] border-2 border-teal-400/50 shadow-2xl shadow-blue-500/15 scale-105 z-10"
+                  : "bg-[#0c2140] border border-white/10 hover:border-white/20 transition-colors"
               }`}
             >
               {/* Popular card ambient glow */}
               {plan.popular && (
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(59,130,246,0.08),transparent)] pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(0,196,180,0.08),transparent)] pointer-events-none" />
               )}
 
               {plan.popular && (
@@ -119,8 +119,8 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
               <ul className="space-y-3 mb-8 flex-1 relative">
                 {plan.features.map((f, j) => (
                   <li key={j} className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 bg-blue-500/15 border border-blue-500/20">
-                      <Check className="w-3 h-3 text-blue-500" />
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 bg-teal-400/15 border border-teal-400/20">
+                      <Check className="w-3 h-3 text-teal-400" />
                     </div>
                     <span className="text-sm text-gray-300">{f}</span>
                   </li>
@@ -131,7 +131,7 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
                 href={plan.href}
                 className={`block w-full text-center py-3.5 rounded-xl font-bold text-sm transition-all relative ${
                   plan.popular
-                    ? "gradient-bg text-white hover:opacity-90 shadow-lg shadow-blue-500/25"
+                    ? "gradient-bg text-white hover:opacity-90 shadow-lg shadow-teal-500/25"
                     : "bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20"
                 }`}
               >
@@ -143,7 +143,7 @@ export default function Pricing({ hideHeader = false }: { hideHeader?: boolean }
 
         <p className="text-center text-gray-500 text-sm mt-10">
           All plans include a free consultation. Custom project?{" "}
-          <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline">
+          <Link href="/contact" className="text-teal-400 hover:text-teal-300 underline">
             Contact us for a quote.
           </Link>
         </p>

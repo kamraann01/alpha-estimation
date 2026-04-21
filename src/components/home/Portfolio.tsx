@@ -13,7 +13,7 @@ const projects = [
     value: "$2.8M Estimate",
     turnaround: "3 business days",
     Icon: Building2,
-    headerClass: "from-blue-900 to-blue-700",
+    headerClass: "from-teal-900 to-teal-700",
     highlights: [
       "Structural steel & concrete takeoff",
       "Full MEP scope",
@@ -57,7 +57,7 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section className="section-padding bg-[#0a0f1e]">
+    <section id="case-studies" className="section-padding bg-[#081c30]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-blue-500 font-semibold text-sm uppercase tracking-wider mb-3">Case Studies</p>
+          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Case Studies</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Featured <span className="gradient-text">Project Estimates</span>
           </h2>
@@ -82,7 +82,7 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group bg-[#0d1425] border border-white/10 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300"
+              className="group bg-[#0c2140] border border-white/10 rounded-2xl overflow-hidden hover:border-teal-400/30 transition-all duration-300"
             >
               {/* Visual header */}
               <div className={`relative h-44 bg-gradient-to-br ${p.headerClass} flex items-center justify-center overflow-hidden`}>
@@ -96,7 +96,7 @@ export default function Portfolio() {
                 />
                 <p.Icon className="w-16 h-16 text-white/20" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-semibold rounded-full border border-blue-500/30">
+                  <span className="px-3 py-1 bg-teal-400/20 text-teal-300 text-xs font-semibold rounded-full border border-teal-400/30">
                     {p.type}
                   </span>
                 </div>
@@ -119,14 +119,14 @@ export default function Portfolio() {
                 <ul className="space-y-2 mb-5">
                   {p.highlights.map((h, j) => (
                     <li key={j} className="flex items-center gap-2 text-gray-400 text-sm">
-                      <CheckCircle className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+                      <CheckCircle className="w-3.5 h-3.5 text-teal-400 shrink-0" />
                       {h}
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/get-a-quote"
-                  className="inline-flex items-center gap-1.5 text-blue-400 text-sm font-medium group-hover:gap-2.5 transition-all duration-200 hover:text-blue-300"
+                  className="inline-flex items-center gap-1.5 text-teal-400 text-sm font-medium group-hover:gap-2.5 transition-all duration-200 hover:text-teal-300"
                 >
                   Get a similar estimate <ArrowRight className="w-4 h-4" />
                 </Link>

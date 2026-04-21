@@ -9,15 +9,15 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://alphaestimation.com"),
   title: {
-    default: "Alpha Estimation | Professional Construction Estimating Services",
+    default: "Alpha Estimation | Accurate Construction Cost Estimating & Takeoff Services",
     template: "%s | Alpha Estimation",
   },
-  description: "Precision construction cost estimating for General Contractors & Subcontractors worldwide. 48hr turnaround, 98% accuracy, starting at $349.",
+  description: "Professional construction cost estimating & takeoff services for General Contractors and Subcontractors worldwide. 500+ projects, 98% satisfaction, 24-48hr turnaround.",
   keywords: "construction estimating, cost estimation, takeoff services, construction bids, general contractor estimating, material takeoff, commercial estimating",
   authors: [{ name: "Alpha Estimation" }],
   openGraph: {
-    title: "Alpha Estimation | Professional Construction Estimating Services",
-    description: "Precision construction cost estimating for General Contractors & Subcontractors worldwide. 48hr turnaround, 98% accuracy.",
+    title: "Alpha Estimation | Accurate Construction Cost Estimating & Takeoff Services",
+    description: "Professional construction cost estimating & takeoff services. 500+ projects, 98% satisfaction, 24-48hr delivery.",
     url: "https://alphaestimation.com",
     siteName: "Alpha Estimation",
     type: "website",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alpha Estimation | Professional Construction Estimating",
-    description: "Fast, accurate construction estimates starting at $349. 48hr turnaround.",
+    description: "Accurate construction estimates & takeoff services. 500+ projects, 98% satisfaction, 24-48hr delivery.",
   },
   alternates: { canonical: "/" },
   robots: {
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-[#0a0f1e] text-white">
+      <body className="antialiased bg-[#081c30] text-white">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-orange-500 focus:text-white focus:rounded-lg focus:font-semibold">
           Skip to content
         </a>

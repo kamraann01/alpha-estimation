@@ -27,7 +27,7 @@ const socialLinks = [
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
         <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0a0f1e" />
+        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#081c30" />
       </svg>
     ),
   },
@@ -60,7 +60,7 @@ const company = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#060b18] border-t border-white/10">
+    <footer className="bg-[#051525] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ href, label, svg }) => (
-                <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-blue-500 transition-colors">
+                <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" className="w-9 h-9 glass rounded-lg flex items-center justify-center text-gray-400 hover:text-teal-400 transition-colors">
                   {svg}
                 </a>
               ))}
@@ -87,7 +87,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  <Link href={s.href} className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
                     {s.label}
                   </Link>
                 </li>
@@ -101,7 +101,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {company.map((c) => (
                 <li key={c.href}>
-                  <Link href={c.href} className="text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                  <Link href={c.href} className="text-gray-400 hover:text-teal-400 transition-colors text-sm">
                     {c.label}
                   </Link>
                 </li>
@@ -114,19 +114,19 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-5">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                <Phone className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
                 <a href="tel:+19283817910" className="text-gray-400 hover:text-white text-sm transition-colors">
                   +1 (928) 381-7910
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                <Mail className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
                 <a href="mailto:contact@alphaestimation.com" className="text-gray-400 hover:text-white text-sm transition-colors">
                   contact@alphaestimation.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                <MapPin className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
                 <span className="text-gray-400 text-sm">
                   117 S Lexington Street STE 100,<br />Harrisonville, MO 64701
                 </span>

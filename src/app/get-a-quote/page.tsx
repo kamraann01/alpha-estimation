@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
-import { Upload, CheckCircle, Phone, Mail } from "lucide-react";
+import { Upload, CheckCircle, Phone, Mail, X, FileText, Paperclip } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -25,6 +25,23 @@ type FormData = z.infer<typeof schema>;
 export default function GetAQuotePage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
+  const [dragOver, setDragOver] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFiles = (newFiles: FileList | null) => {
+    if (!newFiles) return;
+    const accepted = Array.from(newFiles).filter((f) => {
+      const ext = f.name.split(".").pop()?.toLowerCase() ?? "";
+      return ["pdf", "dwg", "dxf", "rvt", "png", "jpg", "jpeg", "xlsx", "xls", "zip"].includes(ext);
+    });
+    setFiles((prev) => {
+      const combined = [...prev, ...accepted];
+      return combined.slice(0, 5); // max 5 files
+    });
+  };
+
+  const removeFile = (i: number) => setFiles((prev) => prev.filter((_, idx) => idx !== i));
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -33,10 +50,12 @@ export default function GetAQuotePage() {
   const onSubmit = async (data: FormData) => {
     setSubmitError(null);
     try {
+      const fileNames = files.map((f) => f.name).join(", ");
+      const payload = { ...data, attachedFileNames: fileNames || "None" };
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Send failed");
       setSubmitted(true);
@@ -151,15 +170,64 @@ export default function GetAQuotePage() {
                 {errors.description && <p className="text-red-400 text-xs mt-1">{errors.description.message}</p>}
               </div>
 
-              {/* File upload hint */}
-              <div className="glass rounded-xl p-4 flex items-center gap-3 border border-dashed border-white/20">
-                <Upload className="w-5 h-5 text-orange-500 shrink-0" />
-                <p className="text-gray-400 text-sm">
-                  Have plans? Email them to{" "}
-                  <a href="mailto:contact@alphaestimation.com" className="text-orange-400 hover:text-orange-300">
+              {/* File upload */}
+              <div>
+                <label className="block text-sm text-gray-300 mb-2 flex items-center gap-2">
+                  <Paperclip className="w-4 h-4 text-teal-400" />
+                  Attach Plans / Documents <span className="text-gray-500 font-normal">(optional, up to 5 files)</span>
+                </label>
+
+                {/* Drop zone */}
+                <div
+                  onClick={() => fileInputRef.current?.click()}
+                  onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+                  onDragLeave={() => setDragOver(false)}
+                  onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFiles(e.dataTransfer.files); }}
+                  className={`relative cursor-pointer rounded-xl border-2 border-dashed px-6 py-7 flex flex-col items-center gap-3 transition-colors ${
+                    dragOver
+                      ? "border-teal-400/60 bg-teal-400/[0.06]"
+                      : "border-white/[0.12] bg-white/[0.02] hover:border-teal-400/30 hover:bg-teal-400/[0.03]"
+                  }`}
+                >
+                  <div className="w-10 h-10 rounded-xl bg-teal-400/10 border border-teal-400/20 flex items-center justify-center">
+                    <Upload className="w-5 h-5 text-teal-400" />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-gray-300 text-sm font-medium">Drop files here or <span className="text-teal-400">browse</span></p>
+                    <p className="text-gray-500 text-xs mt-0.5">PDF, DWG, DXF, RVT, PNG, JPG, Excel, ZIP — max 5 files</p>
+                  </div>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    multiple
+                    accept=".pdf,.dwg,.dxf,.rvt,.png,.jpg,.jpeg,.xlsx,.xls,.zip"
+                    className="hidden"
+                    onChange={(e) => handleFiles(e.target.files)}
+                  />
+                </div>
+
+                {/* File list */}
+                {files.length > 0 && (
+                  <ul className="mt-3 space-y-2">
+                    {files.map((f, i) => (
+                      <li key={i} className="flex items-center gap-3 bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-2.5">
+                        <FileText className="w-4 h-4 text-teal-400 shrink-0" />
+                        <span className="text-gray-300 text-xs flex-1 truncate">{f.name}</span>
+                        <span className="text-gray-500 text-xs shrink-0">{(f.size / 1024).toFixed(0)} KB</span>
+                        <button type="button" onClick={() => removeFile(i)} className="text-gray-500 hover:text-red-400 transition-colors ml-1">
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <p className="text-gray-600 text-xs mt-2">
+                  Large files? Email them to{" "}
+                  <a href="mailto:contact@alphaestimation.com" className="text-teal-400/70 hover:text-teal-400">
                     contact@alphaestimation.com
                   </a>{" "}
-                  after submitting this form.
+                  referencing your project name.
                 </p>
               </div>
 

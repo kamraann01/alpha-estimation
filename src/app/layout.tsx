@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alphaestimation.com"),
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   title: {
     default: "Alpha Estimation | Accurate Construction Cost Estimating & Takeoff Services",
     template: "%s | Alpha Estimation",
@@ -37,7 +42,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const jsonLd = {
+  const jsonLd = [
+  {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Alpha Estimation",
@@ -64,7 +70,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       "https://www.facebook.com/alphaestimation",
       "https://www.linkedin.com/company/alphaestimation"
     ]
-  };
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Construction Cost Estimating",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Alpha Estimation",
+      "url": "https://alphaestimation.com"
+    },
+    "areaServed": "Worldwide",
+    "description": "Professional construction cost estimating and quantity takeoff services for General Contractors and Subcontractors.",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Estimate", "price": "349", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Professional Estimate", "price": "699", "priceCurrency": "USD" }
+    ]
+  }
+];
 
   return (
     <html lang="en" className={inter.variable}>

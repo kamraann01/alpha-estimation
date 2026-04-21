@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { FolderOpen, ThumbsUp, Clock, Award } from "lucide-react";
 
@@ -47,40 +47,60 @@ const stats = [
   },
 ];
 
-function Counter({ end, suffix, active }: { end: number; suffix: string; active: boolean }) {
-  const [count, setCount] = useState(0);
+function Counter({ end, suffix, delay = 0 }: { end: number; suffix: string; delay?: number }) {
+  const [count, setCount] = useState(end); // default to end value — never shows 0
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!active) return;
-    const duration = 2000;
-    const steps = 60;
-    const increment = end / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [active, end]);
+    // Use native IntersectionObserver — reliable in all environments
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+          observer.disconnect();
+
+          // Small delay for stagger effect
+          const startTimeout = setTimeout(() => {
+            setCount(0);
+            const duration = 1600;
+            const steps = 55;
+            const stepTime = duration / steps;
+            let current = 0;
+            const timer = setInterval(() => {
+              current += end / steps;
+              if (current >= end) {
+                setCount(end);
+                clearInterval(timer);
+              } else {
+                setCount(Math.floor(current));
+              }
+            }, stepTime);
+          }, delay);
+
+          return () => clearTimeout(startTimeout);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [end, delay, started]);
 
   return (
-    <span>
+    <span ref={ref} className="tabular-nums">
       {count}{suffix}
     </span>
   );
 }
 
 export default function Stats() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
-    <section ref={ref} className="py-16 border-y border-white/[0.07] bg-[#0c2140] relative overflow-hidden">
+    <section className="py-16 border-y border-white/[0.07] bg-[#0c2140] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,rgba(0,196,180,0.04),transparent)]" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-2">
@@ -88,18 +108,19 @@ export default function Stats() {
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative text-center lg:border-r lg:border-white/[0.07] last:border-0 px-6 py-4 hover:bg-white/[0.02] rounded-xl transition-colors duration-200"
+              className="group text-center lg:border-r lg:border-white/[0.07] last:border-0 px-6 py-4 hover:bg-white/[0.02] rounded-xl transition-colors duration-200"
             >
               {/* Icon */}
               <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${stat.bg} border ${stat.border} mb-4 group-hover:scale-105 transition-transform duration-200`}>
                 <stat.Icon className={`w-5 h-5 ${stat.color}`} />
               </div>
 
-              {/* Number */}
-              <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-1 tabular-nums">
-                <Counter end={stat.value} suffix={stat.suffix} active={isInView} />
+              {/* Animated number */}
+              <div className="text-4xl md:text-5xl font-extrabold gradient-text mb-1">
+                <Counter end={stat.value} suffix={stat.suffix} delay={i * 120} />
               </div>
 
               <p className="text-white font-semibold text-sm mb-0.5">{stat.label}</p>

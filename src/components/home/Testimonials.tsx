@@ -89,7 +89,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Client Reviews</p>
+          <p className="section-label mx-auto mb-5">Client Reviews</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             What Contractors <span className="gradient-text">Say About Us</span>
           </h2>

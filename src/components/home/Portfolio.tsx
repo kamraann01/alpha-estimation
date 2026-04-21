@@ -88,7 +88,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Case Studies</p>
+          <p className="section-label mx-auto mb-5">Case Studies</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Featured <span className="gradient-text">Project Estimates</span>
           </h2>

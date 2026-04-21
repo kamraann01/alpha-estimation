@@ -35,6 +35,7 @@ export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolea
   return (
     <section className="section-padding bg-[#0c2140] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(0,196,180,0.04),transparent)]" />
+      <div className="absolute inset-0 dot-grid opacity-20" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {!hideHeader && (
@@ -44,7 +45,7 @@ export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolea
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className="text-teal-400 font-semibold text-sm uppercase tracking-wider mb-3">Simple 3-Step Process</p>
+            <p className="section-label mx-auto mb-5">Simple 3-Step Process</p>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               From Plans to{" "}
               <span className="gradient-text">Winning Bids</span>
@@ -73,7 +74,7 @@ export default function HowItWorks({ hideHeader = false }: { hideHeader?: boolea
               className="group"
             >
               {/* Card */}
-              <div className="bg-[#081c30] border border-white/[0.09] rounded-2xl p-7 hover:border-teal-400/25 transition-all duration-300 h-full flex flex-col">
+              <div className="bg-[#081c30] border border-white/[0.09] rounded-2xl p-7 card-lift hover:border-teal-400/25 h-full flex flex-col">
 
                 {/* Number + Icon */}
                 <div className="flex items-center gap-4 mb-6">

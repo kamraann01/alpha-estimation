@@ -72,3 +72,71 @@ body {
     padding-bottom: 7rem;
   }
 }
+
+/* ── Premium card lift hover ─────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 0 32px rgba(0, 196, 180, 0.08);
+}
+
+/* ── Blueprint / technical dot-grid (hero overlay) ───────────────── */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(0, 196, 180, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 196, 180, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ── Subtle dot pattern ───────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(rgba(0, 196, 180, 0.18) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ── Glow badge accent ───────────────────────────────────────────── */
+.glow-teal {
+  box-shadow: 0 0 14px rgba(0, 196, 180, 0.45);
+}
+.glow-teal-sm {
+  box-shadow: 0 0 8px rgba(0, 196, 180, 0.35);
+}
+
+/* ── Gradient border card ────────────────────────────────────────── */
+.card-gradient-border {
+  position: relative;
+}
+.card-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0,196,180,0.0) 0%, rgba(0,196,180,0.0) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  transition: background 0.25s ease;
+}
+.card-gradient-border:hover::before {
+  background: linear-gradient(135deg, rgba(0,196,180,0.5) 0%, rgba(0,156,142,0.2) 100%);
+}
+
+/* ── Section label pill ──────────────────────────────────────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 196, 180, 0.08);
+  border: 1px solid rgba(0, 196, 180, 0.2);
+  border-radius: 9999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #00C4B4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

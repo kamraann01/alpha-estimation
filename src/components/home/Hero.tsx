@@ -33,6 +33,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[#081c30]/92" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_30%_40%,rgba(0,196,180,0.10),transparent)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_80%_70%,rgba(0,196,180,0.05),transparent)]" />
+      {/* Blueprint grid pattern */}
+      <div className="absolute inset-0 blueprint-grid opacity-25" />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -43,7 +45,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
-              className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-teal-400 mb-7 border border-teal-400/20"
+              className="section-label mb-7"
             >
               <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse shrink-0" />
               Trusted by 500+ Contractors Worldwide
